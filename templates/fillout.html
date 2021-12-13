@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}Fill out the form to see what's in your pet's food{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block body %}
+<form action="/results" method="GET">
+
+    <div class="fill1" id="fill1">
+    <p><label>Brand name: <input type="text" name="brand"></label></p>
+    </div>
+    <div class="descriptor" id="descriptor">
+        <label for="descriptor">Does the product name use any of these descriptors? Please note: 
+            Pate is a type of cat food, not a descriptor.</label>
+
+        <select name="descriptor" id="descriptor">
+            <option value="">--Please choose an option--</option>
+            <option value="dinner">Dinner, entree, nuggets, etc.</option>
+            <option value="flavor">Flavor as in "Chicken-flavored"</option>
+            <option value="with">With as in "made with real beef"</option>
+            <option value="no">N/A</option>
+        </select>
+    </div>
+
+    <div class="title_1" id="title_1">
+        <label for="title_1">What's the first ingredient in the product name? (IE: 
+            if it is called "Turkey & Fish cat food", then the first ingredient is Turkey)
+        </label>
+
+        <select name="title_1" id="title_1">
+            <option value="">--Please choose an option--</option>
+            <optgroup label="Protein">
+                <option value="Poultry">Poultry</option>
+                <option value="Pork">Pork</option>
+                <option value="Beef">Beef</option>
+                <option value="Seafood">Seafood</option>      
+            </optgroup>
+            <optgroup label="Dairy">
+                <option value="Cheese">Cheese</option>
+                <option value="Milk">Milk</option>
+            </optgroup>
+            <optgroup label="Other">
+                <option value="Fruit">Any fruit</option>
+                <option value="Veggie/Grain">Any vegetable or grain</option>
+            </optgroup>            
+        </select>
+    </div>
+
+    <div class="title_2" id="title_2">
+        <label for="title_2">What's the second ingredient in the product name?</label>
+
+        <select name="title_2" id="title_2">
+            <option value="">--Please choose an option--</option>
+            <optgroup label="Protein">
+                <option value="Poultry">Poultry</option>
+                <option value="Pork">Pork</option>
+                <option value="Beef">Beef</option>
+                <option value="Seafood">Seafood</option>      
+            </optgroup>
+            <optgroup label="Dairy">
+                <option value="Cheese">Cheese</option>
+                <option value="Milk">Milk</option>
+            </optgroup>
+            <optgroup label="Other">
+                <option value="Fruit">Any fruit</option>
+                <option value="Veggie/Grain">Any vegetable or grain</option>
+                <option value="2.0">N/A</option>
+            </optgroup>            
+        </select>
+    </div>
+
+    <div class="title_3" id="title_3">
+        <label for="title_3">What's the third ingredient in the product name?</label>
+
+        <select name="title_3" id="title_3">
+            <option value="">--Please choose an option--</option>
+            <optgroup label="Protein">
+                <option value="Poultry">Poultry</option>
+                <option value="Pork">Pork</option>
+                <option value="Beef">Beef</option>
+                <option value="Seafood">Seafood</option>      
+            </optgroup>
+            <optgroup label="Dairy">
+                <option value="Cheese">Cheese</option>
+                <option value="Milk">Milk</option>
+            </optgroup>
+            <optgroup label="Other">
+                <option value="Fruit">Any fruit</option>
+                <option value="Veggie/Grain">Any vegetable or grain</option>
+                <option value="3.0">N/A</option>
+            </optgroup>            
+        </select>
+    </div>
+
+    <div class="ingredients" id="ingredients" name="ingredients">
+        <label for="ingredients">Excluding vitamins & minerals, what are the first 5 ingredients on the ingredient label?</label>
+            <p><label>First: <input type="text" name="ing1"></label></p>
+            <p><label>Second: <input type="text" name="ing2"></label></p>
+            <p><label>Third: <input type="text" name="ing3"></label></p>
+            <p><label>Fourth: <input type="text" name="ing4"></label></p>
+            <p><label>Fifth: <input type="text" name="ing5"></label></p>
+    </div>
+    
+    <div class="fillers" id="fillers" name="fillers">
+        <label for="fillers">Does the ingredient label contain any of these ingredients? Please select all that apply.</label>
+
+        <fieldset id="cereals" name="cereals">
+            <input type="radio" value="soy" name="cereals">
+            <label for="soy">Soy</label><br/>
+            <input type="radio" value="corn" name="cereals">
+            <label for="corn">Corn</label><br/>
+            <input type="radio" value="wheat" name="cereals">
+            <label for="wheat">Wheat</label><br/>
+        </fieldset>
+        
+        <fieldset id="others" name="others">
+            <input type="radio" value="toco" name="others">
+            <label for="toco">Tocopherols (mixed or non-mixed)</label><br/>
+            <input type="radio" value="la2p" name="others">
+            <label for="la2p">L-ascorbyl-2-polyphosphate</label><br/>
+            <input type="radio" value="msbc" name="others">
+            <label for="msbc">Menadione sodium bisulfate complex</label><br/>
+        </fieldset>
+
+        <fieldset id="proteins" name="proteins">
+            <input type="radio" value="p1" name="proteins">
+            <label for="p1">Meat, just meat</label><br/>
+            <input type="radio" value="p2" name="proteins">
+            <label for="p2">[Meat name] meal</label><br/>
+            <input type="radio" value="p3" name="proteins">
+            <label for="p3">Meat and bone meal</label><br/>
+            <input type="radio" value="p4" name="proteins">
+            <label for="p4">[Meat name] by-product</label><br/>
+            <input type="radio" value="p5" name="proteins">
+            <label for="p5">[Meat name] digest</label><br/>
+        </fieldset>
+
+        <fieldset id="preserv" name="preserv">
+            <input type="radio" value="bha" name="preserv">
+            <label for="bha">Butylated Hydroxyanisole (BHA)</label><br/>
+            <input type="radio" value="bht" name="preserv">
+            <label for="bht">Butylated Hydroxytoluene (BHT)</label><br/>
+            <input type="radio" value="eth" name="preserv">
+            <label for="eth">Ethoxyquin</label><br/>
+        </fieldset>
+    </div>
+
+    <div>
+        <button type="submit">Convert</button>
+    </div>
+    </form>
+{% endblock %}
