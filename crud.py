@@ -1,7 +1,6 @@
 """CRUD operations."""
 
-from model import db, Food, Brand, Ingredient, Filler, TitleIngredient, SubtitleIngredient, connect_to_db
-
+from model import db, Food, Brand, Ingredient, BrandFood, FoodIngredient, IngredientData, connect_to_db
 
 # Functions start here!
 
