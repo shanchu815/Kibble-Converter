@@ -25,8 +25,8 @@ class BrandFood(db.Model):
     __tablename__ = 'brand_foods'
 
     brand_food_id = db.Column(db.Integer,
-                        autoincrement=True,
-                        primary_key=True)
+                            autoincrement=True,
+                            primary_key=True)
     food_id = db.Column(db.Integer,
                         db.ForeignKey('foods.food_id'))
     ingredient_id = db.Column(db.Integer,
@@ -53,8 +53,8 @@ class FoodIngredient(db.Model):
     __tablename__ = 'food_ingredients'
 
     food_ingredient_id = db.Column(db.Integer,
-                        autoincrement=True,
-                        primary_key=True)
+                                autoincrement=True,
+                                primary_key=True)
     food_id = db.Column(db.Integer,
                         db.ForeignKey('foods.food_id'))
     ingredient_id = db.Column(db.Integer,
@@ -66,8 +66,8 @@ class Ingredient(db.Model):
     __tablename__ = 'ingredients'
 
     ingredient_id = db.Column(db.Integer,
-                        autoincrement=True,
-                        primary_key=True)
+                            autoincrement=True,
+                            primary_key=True)
     ingredient_name = db.Column(db.String)
     food_id = db.Column(db.Integer,
                         db.ForeignKey('foods.food_id'))
@@ -87,8 +87,8 @@ class IngredientData(db.Model):
     __tablename__ = 'ingredients_data'
 
     ingredient_id = db.Column(db.Integer,
-                        db.ForeignKey('ingredients.ingredient_id'),
-                        primary_key=True)
+                            db.ForeignKey('ingredients.ingredient_id'),
+                            primary_key=True)
     true_name = db.Column(db.String)
 
     def __repr__(self):
