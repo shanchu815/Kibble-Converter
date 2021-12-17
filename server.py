@@ -38,6 +38,8 @@ def save_choices():
     
     random_id = str(uuid.uuid4())
 
+    #w+ means read file
+
     # with open("db.json", "w+") as f:
     #     try:
     #         info = json.load(f)

@@ -18,10 +18,10 @@ def get_food_by_id(food_id):
 
     return Food.query.get(food_id)
 
-def get_food_by_name(product_name):
+def get_food_by_product_name(product_name):
     """get the food by its name"""
 
-    return Food.query.get(product_name)
+    return Food.query.filter_by(product_name = 'product_name').all()
 
 def create_ingredient(ingredient_name,
                     obscure_name, 
@@ -50,7 +50,7 @@ def get_ingredient_by_id(ingredient_id):
 def get_ingredient_by_name(ingredient_name):
     """get the ingredient by its name"""
 
-    return Ingredient.query.get(ingredient_name)
+    return Ingredient.query.filter_by(ingredient_name = 'ingredient_name').all()
 
 def create_food_ingredient(food, ingredient):
     """create a food ingredient"""
@@ -77,18 +77,17 @@ def get_food_ingredients_by_id(food_id):
 def get_food_ingredients_by_name(product_name):
     """get all the food ingredients of a food by the product name"""
 
-    current_food = get_food_by_name(product_name)
+    current_food = get_food_by_product_name(product_name)
 
     return current_food.ingredients
 
-# def get_food_ingredient_data_by_name(product_name):
-#     """get all the ingredient data of a food by the product name"""
+def get_food_ingredient_data_by_name(product_name):
+    """get all the ingredient data of a food by the product name"""
 
-#     current_food = get_food_by_name(product_name)
-#     current_ingredients = current_food.ingredients
+    current_food = get_food_by_product_name(product_name)
+    current_ingredients = current_food.ingredients
 
-#     return current_ingredients.ingredient_data
-
+    return current_ingredients.ingredient_data
 
 def create_ingredient_data(ingredient, true_name):
     """create data for an ingredient"""
@@ -108,12 +107,12 @@ def get_ingredient_data_by_id(ingredient_id):
 def get_ingredient_data_by_true_name(true_name):
     """get the ingredient data by the true name"""
 
-    return IngredientData.query.get(true_name)
+    return IngredientData.query.filter_by(true_name='true_name').all()
 
 def get_ingredient_data_by_common_name(ingredient_name):
     """get the ingredient data by the common name"""
 
-    ingredient = Ingredient.query.filter_by(ingredient_name='ingredient_name')
+    ingredient = Ingredient.query.filter_by(ingredient_name='ingredient_name').all()
 
     return IngredientData.query.get(ingredient.ingredient_id)
 
