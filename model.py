@@ -89,6 +89,8 @@ class IngredientData(db.Model):
     ingredient_id = db.Column(db.Integer,
                             db.ForeignKey('ingredients.ingredient_id'),
                             primary_key=True)
+    ingredient_name = db.Column(db.String,
+                            db.ForeignKey('ingredients.ingredient_name'))
     true_name = db.Column(db.String)
 
     def __repr__(self):

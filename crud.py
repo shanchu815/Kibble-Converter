@@ -13,18 +13,15 @@ def create_food(product_name):
 
     return food
 
-# def get_food(food_id):
+def get_food_by_id(food_id):
+    """get the food by its id"""
 
-#     Food.query.filter()
+    return Food.query.get(food_id)
 
-# def create_brand(brand_name, food):
+def get_food_by_name(product_name):
+    """get the food by its name"""
 
-#     brand = Brand(brand_name=brand_name, food=food)
-
-#     db.session.add(brand)
-#     db.session.commit()
-
-#     return brand
+    return Food.query.get(product_name)
 
 def create_ingredient(ingredient_name, 
                     food, 
@@ -32,6 +29,8 @@ def create_ingredient(ingredient_name,
                     descriptor, 
                     min_percentage, 
                     max_percentage):
+
+    """create an ingredient"""
 
     ingredient = Ingredient(ingredient_name=ingredient_name, 
                             food=food, 
@@ -45,16 +44,18 @@ def create_ingredient(ingredient_name,
 
     return ingredient
 
-# def create_brand_food(food, brand):
+def get_ingredient_by_id(ingredient_id):
+    """get the ingredient by its id"""
 
-#     brand_food = BrandFood(food=food, brand=brand)
+    return Ingredient.query.get(ingredient_id)
 
-#     db.session.add(brand_food)
-#     db.session.commit()
+def get_ingredient_by_name(ingredient_name):
+    """get the ingredient by its name"""
 
-#     return brand_food
+    return Ingredient.query.get(ingredient_name)
 
 def create_food_ingredient(food, ingredient):
+    """create a food ingredient"""
 
     food_ingredient = FoodIngredient(food=food, ingredient=ingredient)
 
@@ -63,7 +64,43 @@ def create_food_ingredient(food, ingredient):
 
     return food_ingredient
 
+def get_food_ingredient(food_ingredient_id):
+    """get the food ingredient by its id"""
+
+    return FoodIngredient.query.get(food_ingredient_id)
+
+def get_food_ingredients_by_id(food_id):
+    """get all the food ingredients of a food by the food id"""
+
+    current_food = get_food_by_id(food_id)
+
+    return current_food.ingredients
+
+def get_food_ingredients_by_name(product_name):
+    """get all the food ingredients of a food by the product name"""
+
+    current_food = get_food_by_name(product_name)
+
+    return current_food.ingredients
+
+# def get_food_ingredient_data_by_name(product_name):
+#     """get all the ingredient data of a food by the product name"""
+
+#     current_food = get_food_by_name(product_name)
+#     current_ingredients = current_food.ingredients
+
+#     return current_ingredients.ingredient_data
+
+# terminal error message:
+# Original exception was: Could not determine join condition between parent/child tables 
+# on relationship Ingredient.ingredient_data - there are multiple foreign key paths 
+# linking the tables.
+
+# Specify the 'foreign_keys' argument, providing a list of those columns which should be
+#  counted as containing a foreign key reference to the parent table.
+
 def create_ingredient_data(ingredient, true_name):
+    """create data for an ingredient"""
 
     ingredient_data = IngredientData(ingredient=ingredient, true_name=true_name)
 
@@ -71,6 +108,22 @@ def create_ingredient_data(ingredient, true_name):
     db.session.commit()
 
     return ingredient_data
+
+def get_ingredient_data_by_id(ingredient_id):
+    """get the ingredient data by the id"""
+
+    return IngredientData.query.get(ingredient_id)
+
+def get_ingredient_data_by_true_name(true_name):
+    """get the ingredient data by the true name"""
+
+    return IngredientData.query.get(true_name)
+
+def get_ingredient_data_by_common_name(ingredient_name):
+    """get the ingredient data by the common name"""
+
+    return IngredientData.query.get(ingredient_name)
+
 
 if __name__ == '__main__':
     from server import app
