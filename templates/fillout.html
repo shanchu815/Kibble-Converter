@@ -3,18 +3,22 @@
 {% block title %}Fill out the form to see what's in your pet's food{% endblock %}
 
 {% block js %}
+<script src="/static/scripts.js"></script>
 {% endblock %}
-
+<script>
+function confirm_reset() {
+    return confirm("Are you sure you want to reset all fields?");
+}</script>
 {% block body %}
-<form action="/results" method="GET">
+<form action="/results/<random_id>" method="POST">
 
     <div class="fill1" id="fill1">
-    <p><label>Brand name: <input type="text" name="brand"></label></p>
+    <p><label>Product Name: <input type="text" name="p_name"></label></p>
     </div>
     
     <div class="descriptor" id="descriptor">
         <label for="descriptor">Does the product name use any of these descriptors? Please note: 
-            Pate is a type of cat food, not a descriptor.</label>
+            Paté is a type of cat food, not a descriptor.</label>
 
         <select name="descriptor" id="descriptor">
             <option value="">--Please choose an option--</option>
@@ -149,7 +153,7 @@
     </div>
 
     <div>
-        <button type="submit">Convert</button>
+        <input type="submit"> <input type="reset" onclick="return confirm_reset();" value="Clear form">
     </div>
     </form>
 {% endblock %}

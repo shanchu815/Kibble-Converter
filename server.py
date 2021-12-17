@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify
+import uuid
 
 # "__name__" is a special Python variable for the name of the current module
 # Flask wants to know this to know what any imported things are relative to.
@@ -19,6 +20,11 @@ def show_disclaimer():
 
     return render_template("disclaimer.html")
 
+@app.route("/calculator")
+def calculate():
+    """Shows the protein calculator page."""
+
+    return render_template("calculator.html")
 
 @app.route("/fillout")
 def fill_out():
@@ -26,8 +32,10 @@ def fill_out():
 
     return render_template("fillout.html")
 
-@app.route("/result")
-def show_results():
+random_id = uuid.uuid4()
+
+@app.route("/results/<random_id>", methods = ['POST'])
+def show_results(random_id):
     """Shows the results"""
     
     name = request.args.get("brand")
