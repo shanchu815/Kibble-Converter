@@ -23,8 +23,7 @@ def get_food_by_name(product_name):
 
     return Food.query.get(product_name)
 
-def create_ingredient(ingredient_name, 
-                    food, 
+def create_ingredient(ingredient_name,
                     obscure_name, 
                     descriptor, 
                     min_percentage, 
@@ -32,8 +31,7 @@ def create_ingredient(ingredient_name,
 
     """create an ingredient"""
 
-    ingredient = Ingredient(ingredient_name=ingredient_name, 
-                            food=food, 
+    ingredient = Ingredient(ingredient_name=ingredient_name,
                             obscure_name=obscure_name, 
                             descriptor=descriptor, 
                             min_percentage=min_percentage, 
@@ -91,13 +89,6 @@ def get_food_ingredients_by_name(product_name):
 
 #     return current_ingredients.ingredient_data
 
-# terminal error message:
-# Original exception was: Could not determine join condition between parent/child tables 
-# on relationship Ingredient.ingredient_data - there are multiple foreign key paths 
-# linking the tables.
-
-# Specify the 'foreign_keys' argument, providing a list of those columns which should be
-#  counted as containing a foreign key reference to the parent table.
 
 def create_ingredient_data(ingredient, true_name):
     """create data for an ingredient"""
@@ -122,7 +113,9 @@ def get_ingredient_data_by_true_name(true_name):
 def get_ingredient_data_by_common_name(ingredient_name):
     """get the ingredient data by the common name"""
 
-    return IngredientData.query.get(ingredient_name)
+    ingredient = Ingredient.query.filter_by(ingredient_name='ingredient_name')
+
+    return IngredientData.query.get(ingredient.ingredient_id)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, redirect, url_for
 import uuid
 
 # "__name__" is a special Python variable for the name of the current module
@@ -29,33 +29,53 @@ def calculate():
 @app.route("/fillout")
 def fill_out():
     """Shows the fillout form"""
+
+    return render_template("fillout.html")
+
+@app.route("/save-list", methods = ['POST'])
+def save_choices():
+    """Saves the chosen form options"""
     
-    random_id = uuid.uuid4()
+    random_id = str(uuid.uuid4())
 
-    return render_template("fillout.html", random_id=random_id)
+    # with open("db.json", "w+") as f:
+    #     try:
+    #         info = json.load(f)
+    #     except:
+    #         info = {}
+    #     info[random_id] = [request.form.get('ing1'), request.form.get('ing2')]
+    #     json.dump(info, f)
 
-@app.route("/results/<random_id>", methods = ['POST'])
-def show_results(random_id):
-    """Shows the results"""
+    # name = request.form.get("p_name")
+    # d_key = request.form.get("descriptor")
+    # first = request.form.get("ing1")
+    # second = request.form.get("ing2")
+    # third = request.form.get("ing3")
+    # fourth = request.form.get("ing4")
+    # fifth = request.form.get("ing5")
+    # title_1 = request.form.get("title_1")
+    # title_2 = request.form.get("title_2")
+    # title_3 = request.form.get("title_3")
+    # cereal = request.form.get("cereals")
+    # other = request.form.get("others")
+    # protein = request.form.get("proteins")
+    # preserv = request.form.get("preserv")
+
+    return redirect(url_for('/results/') + random_id)
+
+@app.route('/results/<random_id>')
+def show_result(random_id):
+    """Displays the choices as a result page"""
     
-    name = request.form.get("p_name")
-    d_key = request.form.get("descriptor")
-    first = request.form.get("ing1")
-    second = request.form.get("ing2")
-    third = request.form.get("ing3")
-    fourth = request.form.get("ing4")
-    fifth = request.form.get("ing5")
-    title_1 = request.form.get("title_1")
-    title_2 = request.form.get("title_2")
-    title_3 = request.form.get("title_3")
-    cereal = request.form.get("cereals")
-    other = request.form.get("others")
-    protein = request.form.get("proteins")
-    preserv = request.form.get("preserv")
-
-    return render_template("result.html")
-
-
+    with open("db.json", "r") as f:
+        try:
+            info = json.load(f)
+        except:
+            info = {}
+    if random_id not in info:
+        return "Invalid id"
+    else:
+        return render_template("results.html", ingredients = info[random_id])
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads"
