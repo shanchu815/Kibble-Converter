@@ -11,3 +11,5 @@ os.system('createdb pet_food')
 
 model.connect_to_db(server.app)
 model.db.create_all()
+
+

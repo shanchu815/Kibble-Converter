@@ -1,6 +1,6 @@
 """CRUD operations."""
 
-from model import db, Food, Brand, Ingredient, BrandFood, FoodIngredient, IngredientData, connect_to_db
+from model import db, Food, Ingredient, FoodIngredient, IngredientData, connect_to_db
 
 # Functions start here!
 def create_food(product_name):
@@ -13,14 +13,18 @@ def create_food(product_name):
 
     return food
 
-def create_brand(brand_name, food):
+# def get_food(food_id):
 
-    brand = Brand(brand_name=brand_name, food=food)
+#     Food.query.filter()
 
-    db.session.add(brand)
-    db.session.commit()
+# def create_brand(brand_name, food):
 
-    return brand
+#     brand = Brand(brand_name=brand_name, food=food)
+
+#     db.session.add(brand)
+#     db.session.commit()
+
+#     return brand
 
 def create_ingredient(ingredient_name, 
                     food, 
@@ -41,14 +45,14 @@ def create_ingredient(ingredient_name,
 
     return ingredient
 
-def create_brand_food(food, brand):
+# def create_brand_food(food, brand):
 
-    brand_food = BrandFood(food=food, brand=brand)
+#     brand_food = BrandFood(food=food, brand=brand)
 
-    db.session.add(brand_food)
-    db.session.commit()
+#     db.session.add(brand_food)
+#     db.session.commit()
 
-    return brand_food
+#     return brand_food
 
 def create_food_ingredient(food, ingredient):
 

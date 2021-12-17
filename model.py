@@ -13,39 +13,39 @@ class Food(db.Model):
                         primary_key=True)
     product_name = db.Column(db.String)
 
-    brands = db.relationship('Brand', secondary='brand_foods', backref='foods')
+    # brands = db.relationship('Brand', secondary='brand_foods', backref='foods')
     ingredients = db.relationship('Ingredient', secondary='food_ingredients', backref='foods')
 
     def __repr__(self):
         return f'<Food product name={self.product_name} food id={self.food_id}>'
 
-class BrandFood(db.Model):
-    """A specific pet food that belongs to this particular brand"""
+# class BrandFood(db.Model):
+#     """A specific pet food that belongs to this particular brand"""
 
-    __tablename__ = 'brand_foods'
+#     __tablename__ = 'brand_foods'
 
-    brand_food_id = db.Column(db.Integer,
-                            autoincrement=True,
-                            primary_key=True)
-    food_id = db.Column(db.Integer,
-                        db.ForeignKey('foods.food_id'))
-    ingredient_id = db.Column(db.Integer,
-                        db.ForeignKey('brands.brand_id'))
+#     brand_food_id = db.Column(db.Integer,
+#                             autoincrement=True,
+#                             primary_key=True)
+#     food_id = db.Column(db.Integer,
+#                         db.ForeignKey('foods.food_id'))
+#     ingredient_id = db.Column(db.Integer,
+#                         db.ForeignKey('brands.brand_id'))
 
-class Brand(db.Model):
-    """A brand of pet food."""
+# class Brand(db.Model):
+#     """A brand of pet food."""
 
-    __tablename__ = 'brands'
+#     __tablename__ = 'brands'
 
-    brand_id = db.Column(db.Integer,
-                        autoincrement=True,
-                        primary_key=True)
-    brand_name = db.Column(db.String)
-    food_id = db.Column(db.Integer,
-                        db.ForeignKey('foods.food_id'))
+#     brand_id = db.Column(db.Integer,
+#                         autoincrement=True,
+#                         primary_key=True)
+#     brand_name = db.Column(db.String)
+#     food_id = db.Column(db.Integer,
+#                         db.ForeignKey('foods.food_id'))
 
-    def __repr__(self):
-        return f'<Brand name={self.name} brand id={self.brand_id}>'
+#     def __repr__(self):
+#         return f'<Brand name={self.name} brand id={self.brand_id}>'
 
 class FoodIngredient(db.Model):
     """An ingredient that's in this specific food"""

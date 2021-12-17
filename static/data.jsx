@@ -88,14 +88,14 @@ const ingredientData = [
 const descriptorData = [
     {
         name: 'dinner',
-        ing_min: 0.25,
-        ing_max: 0.95,
-        ing_min_water: 0.10,
-        ing2_min: 0.03,
+        ing_min: 25,
+        ing_max: 95,
+        ing_min_water: 10,
+        ing2_min: 3,
     },
     {
         name: 'with',
-        ing_min: 0.03,
+        ing_min: 3,
     },
     {
         name: 'flavor',
@@ -103,8 +103,36 @@ const descriptorData = [
     },
     {
         name: 'no',
-        ing_min: 0.95,
+        ing_min: 95,
     }
+]
+
+const templateTitleText = [
+  {
+      num: 1,
+      descriptor: None,
+      text: `The product is at least 95% ${ing1}.`,
+  },
+  {
+    num: 1,
+    descriptor: "dinner",
+    text: `The product is at least 25% ${ing1}. It cannot exceed 95%.`,
+},
+  {
+    num: 2,
+    descriptor: "with",
+    text: `The product is at least 25% ${ing1}. It cannot exceed 95%. ${ing2} makes up at least 3%.`,
+  },
+  {
+    num: 3,
+    descriptor: "with",
+    text: `The product is at least 25% ${ing1}. It cannot exceed 95%. ${ing2} & ${ing3} make up at least 3% each.`,
+  },
+  {
+    num: [1-3],
+    descriptor: "flavor",
+    text: `The product does not have to include any amount of actual ${ing1}. It can be substituted with ${ing1} stock instead.`,
+  },
 ]
 
 
