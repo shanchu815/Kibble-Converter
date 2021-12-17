@@ -7,15 +7,19 @@
 {% endblock %}
 
 {% block body %}
-<form action="/results/<random_id>" method="POST">
+<form action="/results/<uuid: random_id>" id="ingredients-form" method="POST">
 
     <div class="fill1" id="fill1">
-    <p><label>Product Name: <input type="text" name="p_name"></label></p>
+        <p>
+            <label for="p_name">Product Name: </label>
+        </p>
+            <input type="text" name="p_name" placeholder="Ex: Purina Beef Benefuls">
     </div>
     
     <div class="descriptor" id="descriptor">
-        <label for="descriptor">Does the product name use any of these descriptors? Please note: 
-            Paté is a type of cat food, not a descriptor.</label>
+        <label for="descriptor">Does the product name use any of these descriptors? 
+            <br>Please note: Paté is a type of cat food, not a descriptor.
+        </label>
 
         <select name="descriptor" id="descriptor">
             <option value="">--Please choose an option--</option>

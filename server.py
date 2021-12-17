@@ -34,44 +34,26 @@ def fill_out():
 
 random_id = uuid.uuid4()
 
-@app.route("/results/<random_id>", methods = ['POST'])
+@app.route("/results/<uuid: random_id>", methods = ['POST'])
 def show_results(random_id):
     """Shows the results"""
     
-    name = request.args.get("brand")
-    d_key = request.args.get("descriptor")
-    first = request.args.get("ing1")
-    second = request.args.get("ing2")
-    third = request.args.get("ing3")
-    fourth = request.args.get("ing4")
-    fifth = request.args.get("ing5")
-    title_1 = request.args.get("title_1")
-    title_2 = request.args.get("title_2")
-    title_3 = request.args.get("title_3")
-    cereal = request.args.get("cereals")
-    other = request.args.get("others")
-    protein = request.args.get("proteins")
-    preserv = request.args.get("preserv")
+    name = request.form.get("p_name")
+    d_key = request.form.get("descriptor")
+    first = request.form.get("ing1")
+    second = request.form.get("ing2")
+    third = request.form.get("ing3")
+    fourth = request.form.get("ing4")
+    fifth = request.form.get("ing5")
+    title_1 = request.form.get("title_1")
+    title_2 = request.form.get("title_2")
+    title_3 = request.form.get("title_3")
+    cereal = request.form.get("cereals")
+    other = request.form.get("others")
+    protein = request.form.get("proteins")
+    preserv = request.form.get("preserv")
 
-    cer = f"{ing_data[cereal]['name']}: {ing_data[cereal]['effect']}, {ing_data[cereal]['details']}"
-    oth = f"{ing_data[other]['name']}: {ing_data[other]['effect']}, {ing_data[other]['details']}"
-    pro = f"{ing_data[protein]['name']}: {ing_data[protein]['effect']}, {ing_data[protein]['details']}"
-    pres = f"{ing_data[preserv]['name']}: {ing_data[preserv]['effect']}, {ing_data[preserv]['details']}"
-
-    ings = []
-    if title_2 != 2.0:
-        ings.append(title_2)
-    if title_3 != 3.0:
-        ings.append(title_3)
-
-    if d_key == "dinner":
-        description = f"The product contains at least 25% {title_1} up to a maximum of 95%. Not counting water content, the minimum is 10%. Other named ingredients: {ings} must be at least 3% each."
-    else:
-        description = f"The product contains at least {contents[d_key]['ing_min']}% {title_1}."
-
-    return render_template("result.html", name=name, description=description,
-    first=first, second=second, third=third, fourth=fourth, fifth=fifth,
-    cer=cer, oth=oth, pro=pro, pres=pres)
+    return render_template("result.html")
 
 contents = {
     'dinner': {'ing_min': 25,'ing_max': 95,'ing_min_water': 10,'ing2_min': 3,},
@@ -157,3 +139,19 @@ if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads"
     # our web app if we change the code.
     app.run(debug=True, host="0.0.0.0")
+
+    # cer = f"{ing_data[cereal]['name']}: {ing_data[cereal]['effect']}, {ing_data[cereal]['details']}"
+    # oth = f"{ing_data[other]['name']}: {ing_data[other]['effect']}, {ing_data[other]['details']}"
+    # pro = f"{ing_data[protein]['name']}: {ing_data[protein]['effect']}, {ing_data[protein]['details']}"
+    # pres = f"{ing_data[preserv]['name']}: {ing_data[preserv]['effect']}, {ing_data[preserv]['details']}"
+
+    # ings = []
+    # if title_2 != 2.0:
+    #     ings.append(title_2)
+    # if title_3 != 3.0:
+    #     ings.append(title_3)
+
+    # if d_key == "dinner":
+    #     description = f"The product contains at least 25% {title_1} up to a maximum of 95%. Not counting water content, the minimum is 10%. Other named ingredients: {ings} must be at least 3% each."
+    # else:
+    #     description = f"The product contains at least {contents[d_key]['ing_min']}% {title_1}."
