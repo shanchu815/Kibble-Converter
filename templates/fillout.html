@@ -5,10 +5,7 @@
 {% block js %}
 <script src="/static/scripts.js"></script>
 {% endblock %}
-<script>
-function confirm_reset() {
-    return confirm("Are you sure you want to reset all fields?");
-}</script>
+
 {% block body %}
 <form action="/results/<random_id>" method="POST">
 
