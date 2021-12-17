@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Find out the true protein content in your pet food!{% endblock %}
+
+{% block js %}
+<script src="/static/scripts.js"></script>
+{% endblock %}
+<h3>True protein calculators</h3>
+
+<!-- insert an image here showing the crude protein & moisture contents circled on a ingredient label -->
+
+<h2>Pet food 1</h2>
+    <form id=calc1>
+    <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
+    <input type="number" id="crude-protein" name="crude-protein" />
+    <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
+    <input type="number" id="moisture" name="moisture" />
+    <input type="submit" value="Submit"/>
+    <input type="reset" value="Reset"/>
+    </form>
+<p>True protein content: <span id="true-protein"></span></p>
+
+<h2>Pet food 2</h2>
+    <form id=calc2>
+    <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
+    <input type="number" id="crude-protein" name="crude-protein" />
+    <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
+    <input type="number" id="moisture" name="moisture" />
+    <input type="submit" value="Submit"/>
+    <input type="reset" value="Reset"/>
+    </form>
+<p>True protein content: <span id="true-protein2"></span></p>
+
+{% block body %}
+
+{% endblock %}
