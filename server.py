@@ -103,3 +103,10 @@ if __name__ == '__main__':
     #     description = f"The product contains at least 25% {title_1} up to a maximum of 95%. Not counting water content, the minimum is 10%. Other named ingredients: {ings} must be at least 3% each."
     # else:
     #     description = f"The product contains at least {contents[d_key]['ing_min']}% {title_1}."
+
+
+beef/deer	none	    This is 95% beef/deer minimum.							
+beef/deer	with/dinner	This is 25-95% beef/deer. Ingredients named afterwards make up at least 3% each.							
+beef/deer	flavor	    This is 0% actual beef/deer. There may be stock or some other substitute used.		
+
+https://gyazo.com/a97f69d97d959b6fffd2f550ebf294c9

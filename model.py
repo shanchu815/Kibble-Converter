@@ -44,6 +44,7 @@ class Ingredient(db.Model):
     descriptor = db.Column(db.String)
     min_percentage = db.Column(db.Float)
     max_percentage = db.Column(db.Float)
+    effect
 
     ingredient_data = db.relationship('IngredientData', backref='ingredients')
 
