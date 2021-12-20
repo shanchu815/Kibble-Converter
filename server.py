@@ -38,7 +38,11 @@ def save_choices():
     
     random_id = str(uuid.uuid4())
 
-    #w+ means read file
+    # Juvian on discord said: since you already have a db,
+    # you should just add+commit instead of write to file and just query instead of read file
+    # so basically i need to call the crud functions that create a new food
+
+    #the Food class is going to need random_id as a key if i'm going to use it to pull it from the db
 
     # with open("db.json", "w+") as f:
     #     try:
@@ -69,11 +73,11 @@ def save_choices():
 def show_result(random_id):
     """Displays the choices as a result page"""
     
-    with open("db.json", "r") as f:
-        try:
-            info = json.load(f)
-        except:
-            info = {}
+    # with open("db.json", "r") as f:
+    #     try:
+    #         info = json.load(f)
+    #     except:
+    #         info = {}
     if random_id not in info:
         return "Invalid id"
     else:
