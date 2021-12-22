@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, jsonify, redirect, url_for
-import uuid
-
+from model import connect_to_db
+import crud
 # "__name__" is a special Python variable for the name of the current module
 # Flask wants to know this to know what any imported things are relative to.
 app = Flask(__name__)
@@ -12,6 +12,7 @@ app.secret_key = 'W33d1sl33t1845!'
 @app.route('/')
 def start_here():
     """Home page."""
+    
     return render_template("homepage.html")
 
 @app.route("/disclaimer")
@@ -34,54 +35,37 @@ def fill_out():
 
 @app.route("/save-list", methods = ['POST'])
 def save_choices():
-    """Saves the chosen form options"""
-    
-    random_id = str(uuid.uuid4())
+    """Saves the chosen form options as a new food object"""
 
-    # Juvian on discord said: since you already have a db,
-    # you should just add+commit instead of write to file and just query instead of read file
-    # so basically i need to call the crud functions that create a new food
+    product_name = request.form.get("product_name")
+    descriptor = request.form.get("descriptor")
+    ingredient_name = request.form.get("ingredient_name")
+    grain = request.form.get("grains")
+    additive = request.form.get("additives")
+    protein = request.form.get("proteins")
+    preservative = request.form.get("preservatives")
 
-    #the Food class is going to need random_id as a key if i'm going to use it to pull it from the db
+    new_food = crud.create_food(product_name)
+    ingredient_type = crud.get_ingredient_by_combo(ingredient_name, descriptor)
+    grain_type = crud.get_grain_by_id(grain)
+    additive_type = crud.get_additive_by_id(additive)
+    protein_type = crud.get_protein_by_id(protein)
+    preservative_type = crud.get_preservative_by_id(preservative)
 
-    # with open("db.json", "w+") as f:
-    #     try:
-    #         info = json.load(f)
-    #     except:
-    #         info = {}
-    #     info[random_id] = [request.form.get('ing1'), request.form.get('ing2')]
-    #     json.dump(info, f)
+    new_food_ingredient = crud.create_food_ingredient(new_food, ingredient_type, 
+                                                    grain_type, additive_type, 
+                                                    protein_type, preservative_type)
 
-    # name = request.form.get("p_name")
-    # d_key = request.form.get("descriptor")
-    # first = request.form.get("ing1")
-    # second = request.form.get("ing2")
-    # third = request.form.get("ing3")
-    # fourth = request.form.get("ing4")
-    # fifth = request.form.get("ing5")
-    # title_1 = request.form.get("title_1")
-    # title_2 = request.form.get("title_2")
-    # title_3 = request.form.get("title_3")
-    # cereal = request.form.get("cereals")
-    # other = request.form.get("others")
-    # protein = request.form.get("proteins")
-    # preserv = request.form.get("preserv")
+    return redirect(url_for('/results/') + new_food.food_id)
 
-    return redirect(url_for('/results/') + random_id)
-
-@app.route('/results/<random_id>')
-def show_result(random_id):
+@app.route('/results/<food_id>')
+def show_result(food_id):
     """Displays the choices as a result page"""
     
-    # with open("db.json", "r") as f:
-    #     try:
-    #         info = json.load(f)
-    #     except:
-    #         info = {}
-    if random_id not in info:
+    if food_id not in pet_food:
         return "Invalid id"
     else:
-        return render_template("results.html", ingredients = info[random_id])
+        return render_template("results.html", ingredients = pet_food[food_id])
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads"
