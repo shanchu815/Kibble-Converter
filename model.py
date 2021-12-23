@@ -8,12 +8,10 @@ class Food(db.Model):
 
     __tablename__ = 'foods'
 
-    food_id = db.Column(db.String,
-                        primary_key=True)
+    food_id = db.Column(db.String, primary_key=True)
     product_name = db.Column(db.String)
 
     ingredients = db.relationship('Ingredient', secondary='food_ingredients', backref='foods')
-    #ask about this line
 
     def __repr__(self):
         return f'<Food product name={self.product_name} food id={self.food_id}>'
@@ -23,13 +21,9 @@ class FoodIngredient(db.Model):
 
     __tablename__ = 'food_ingredients'
 
-    food_ingredient_id = db.Column(db.Integer,
-                                autoincrement=True,
-                                primary_key=True)
-    food_id = db.Column(db.String,
-                        db.ForeignKey('foods.food_id'))
-    ingredient_id = db.Column(db.Integer,
-                        db.ForeignKey('ingredients.ingredient_id'))
+    food_ingredient_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
+    ingredient_id = db.Column(db.Integer, db.ForeignKey('ingredients.ingredient_id'))
     grain_id = db.Column(db.String,
                         db.ForeignKey('grains.grain_id'),
                         nullable=True)
@@ -57,9 +51,7 @@ class Ingredient(db.Model):
 
     __tablename__ = 'ingredients'
 
-    ingredient_id = db.Column(db.Integer,
-                            autoincrement=True,
-                            primary_key=True)
+    ingredient_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String)
     descriptor = db.Column(db.String)
     details = db.Column(db.String)
@@ -72,8 +64,7 @@ class Grain(db.Model):
 
     __tablename__ = 'grains'
 
-    grain_id = db.Column(db.String,
-                            primary_key=True)
+    grain_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -86,8 +77,7 @@ class Additive(db.Model):
 
     __tablename__ = 'additives'
 
-    additive_id = db.Column(db.String,
-                            primary_key=True)
+    additive_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -100,8 +90,7 @@ class Protein(db.Model):
 
     __tablename__ = 'proteins'
 
-    protein_id = db.Column(db.String,
-                            primary_key=True)
+    protein_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -114,8 +103,7 @@ class Preservative(db.Model):
 
     __tablename__ = 'preservatives'
 
-    preservative_id = db.Column(db.String,
-                            primary_key=True)
+    preservative_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
