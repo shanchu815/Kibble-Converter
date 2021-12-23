@@ -1,157 +1,154 @@
-{"Data": {
-  
-  "grains": {
-        "1": 
-        {"grain_id": "soy""name": "Soy",
+[{
+  "grains": [
+
+        {"grain_id": "soy",
+        "name": "Soy",
         "effect": "Used as a hypoallergenic source of protein & carbs",
         "details": "Cats can develop allergies to it later in life"},
 
-        "2": 
-        {"grain_id": "corn""name": "Corn",
+        {"grain_id": "corn",
+        "name": "Corn",
         "effect": "Used as a source of carbs & fiber",
         "details": "Metabolizes into sugar in the gut"},
 
-        "3": 
-        {"grain_id": "wheat""name": "Wheat",
+        {"grain_id": "wheat",
+        "name": "Wheat",
         "effect": "Used as a source of carbs",
-        "details": "Common allergen for both dogs & cats"}},
+        "details": "Common allergen for both dogs & cats"}],
 
-  "additives": {
-          "1": 
-          {"additive_id": "toco","name": "Tocopherols (mixed or non-mixed)",
+  "additives": [
+
+          {"additive_id": "toco",
+          "name": "Tocopherols (mixed or non-mixed)",
           "effect": "A food preservative used to add Vitamin E to products",
           "details": "Your pet may be allergic since its derived sources (veggies, nuts or fish) are not listed on the label"},
 
-          "2": 
-          {"additive_id": "la2p","name": "L-ascorbyl-2-polyphosphate",
+          {"additive_id": "la2p",
+          "name": "L-ascorbyl-2-polyphosphate",
           "effect": "Ascorbic acid aka Vitamin C",
           "details": "There have been no controversies thus far."},
 
-          "3": 
-          {"additive_id": "msbc","name": "Menadione sodium bisulfate comple",
+          {"additive_id": "msbc",
+          "name": "Menadione sodium bisulfate comple",
           "effect": "A source of Vitamin K3",
-          "details": "A known carcinogenic & also technically illegal since AAFCO only allows it to be used in Poultry feed"}},
+          "details": "A known carcinogenic & also technically illegal since AAFCO only allows it to be used in Poultry feed"}],
 
-  "preservatives": {
-              "1": 
+  "preservatives": [
+
               {"preservative_id": "bha",
-  "name": "Butylated Hydroxyanisole (BHA)",
+              "name": "Butylated Hydroxyanisole (BHA)",
               "effect": "Artificial preservative",
               "details": "Labelled as a carcinogen in California & banned in the EU"},
 
-              "2": 
               {"preservative_id": "bht",
-  "name": "Butylated Hydroxytoluene (BHT)",
+              "name": "Butylated Hydroxytoluene (BHT)",
               "effect": "Artificial preservative",
               "details": "Not concluded to be a carcinogen but still banned in Japan, Romania, Sweden & Australia"},
 
-              "3": 
               {"preservative_id": "eth",
-  "name": "Ethoxyquin",
+              "name": "Ethoxyquin",
               "effect": "Artificial preservative",
-              "details": "Not concluded to be a carcinogen but still banned in the EU & Australia"}},
+              "details": "Not concluded to be a carcinogen but still banned in the EU & Australia"}],
 
-  "proteins": {
-          "1": 
-          {"protein_id": "p1","name": "Meat",
+  "proteins": [
+
+          {"protein_id": "p1",
+          "name": "Meat",
           "effect": "Clean muscle (skeletal, tongue, diaphragm, heart, esophagus) from animals",
           "details": "May or may not include fat, skin, nerves, & blood vessels"},
 
-          "2": 
-          {"protein_id": "p2","name": "Meat meal",
+          {"protein_id": "p2",
+          "name": "Meat meal",
           "effect": "Rendered (or processed) product from animal tissues",
           "details": "Excludes hair, hooves, horn, hide, manure, or GI contents"},
 
-          "3": 
-          {"protein_id": "p3","name": "Meat and bone meal",
+          {"protein_id": "p3",
+          "name": "Meat and bone meal",
           "effect": "Rendered (or processed) product from animal tissues & bones",
           "details": "Excludes hair, hooves, horn, hide, manure, or GI contents"},
 
-          "4": 
-          {"protein_id": "p4","name": "Meat by-product",
+          {"protein_id": "p4",
+          "name": "Meat by-product",
           "effect": "Rendered (or processed) product from animal tissues & bones",
           "details": "Excludes hair, hooves, horn, hide, manure, or GI contents"},        
         
-          "5": 
-          {"protein_id": "p5","name": "Meat digest",
+          {"protein_id": "p5",
+          "name": "Meat digest",
           "effect": "Materials resulting from chemical or enzymatic degradation of clean animal tissue",
-          "details": "Excludes hair, horns, teeth, hooves, & feathers"}        
-        
-        },
+          "details": "Excludes hair, horns, teeth, hooves, & feathers"}],
 
-  "ingredients":{
-          "1":
+  "ingredients":[
+
           {"name": "Poultry", 
           "descriptor": "None", 
           "details": "This is 95% poultry minimum."}, 
-          "2":
+
           {"name": "Poultry", 
             "descriptor": "with/dinner", 
             "details": "This is 25-95% poultry. Ingredients named afterwards make up at least 3% each."}, 
-          "3":
+
           {"name": "Poultry", 
             "descriptor": "flavor", 
             "details": "This is 0% actual poultry. There may be stock or some other substitute used."}, 
-          "4":
+
           {"name": "Beef/Deer", 
             "descriptor": "None", 
             "details": "This is 95% beef/deer minimum."}, 
-          "5":
+
           {"name": "Beef/Deer", 
             "descriptor": "with/dinner", 
             "details": "This is 25-95% beef/deer. Ingredients named afterwards make up at least 3% each."}, 
-          "6":
+
           {"name": "Beef/Deer", 
             "descriptor": "flavor", 
             "details": "This is 0% actual beef/deer. There may be stock or some other substitute used."}, 
-          "7":
+
           {"name": "Fish/Seafood", 
             "descriptor": "None", 
             "details": "This is 95% fish/seafood minimum."}, 
-          "8":
+
           {"name": "Fish/Seafood", 
             "descriptor": "with/dinner", 
             "details": "This is 25-95% fish/seafood. Ingredients named afterwards make up at least 3% each."}, 
-          "9":
+
           {"name": "Fish/Seafood", 
             "descriptor": "flavor", 
             "details": "This is 0% actual fish/seafood. There may be stock or some other substitute used."}, 
-          "10":
+
           {"name": "Dairy", 
             "descriptor": "None", 
             "details": "This is 95% dairy minimum."}, 
-          "11":
+
           {"name": "Dairy", 
             "descriptor": "with/dinner", 
             "details": "This is 25-95% dairy. Ingredients named afterwards make up at least 3% each."}, 
-          "12":
+
           {"name": "Dairy", 
             "descriptor": "flavor", 
             "details": "This is 0% actual dairy. There may be stock or some other substitute used."}, 
-          "13":
+
           {"name": "Pork", 
             "descriptor": "None", 
             "details": "This is 95% pork minimum."}, 
-          "14":
+
           {"name": "Pork", 
             "descriptor": "with/dinner", 
             "details": "This is 25-95% pork. Ingredients named afterwards make up at least 3% each."}, 
-          "15":
+
           {"name": "Pork", 
             "descriptor": "flavor", 
             "details": "This is 0% actual pork. There may be stock or some other substitute used."}, 
-          "16":
+
           {"name": "Veggie/Grain/Fruit", 
             "descriptor": "None", 
             "details": "This is 95% vegetable/grain/fruit minimum."}, 
-          "17":
+
           {"name": "Veggie/Grain/Fruit", 
             "descriptor": "with/dinner", 
             "details": "This is 25-95% vegetable/grain/fruit. Ingredients named afterwards make up at least 3% each."}, 
-          "18":
+
           {"name": "Veggie/Grain/Fruit", 
             "descriptor": "flavor", 
-            "details": "This is 0% actual vegetable/grain/fruit. There may be stock or some other substitute used."}
-        }
+            "details": "This is 0% actual vegetable/grain/fruit. There may be stock or some other substitute used."}]
   }
-}
+]
