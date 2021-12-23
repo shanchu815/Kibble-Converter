@@ -30,16 +30,16 @@ class FoodIngredient(db.Model):
                         db.ForeignKey('foods.food_id'))
     ingredient_id = db.Column(db.Integer,
                         db.ForeignKey('ingredients.ingredient_id'))
-    grain_id = db.Column(db.Integer,
+    grain_id = db.Column(db.String,
                         db.ForeignKey('grains.grain_id'),
                         nullable=True)
-    additive_id = db.Column(db.Integer,
+    additive_id = db.Column(db.String,
                         db.ForeignKey('additives.additive_id'),
                         nullable=True)
-    protein_id = db.Column(db.Integer,
+    protein_id = db.Column(db.String,
                         db.ForeignKey('proteins.protein_id'),
                         nullable=True)
-    preservative_id = db.Column(db.Integer,
+    preservative_id = db.Column(db.String,
                         db.ForeignKey('preservatives.preservative_id'),
                         nullable=True)
 

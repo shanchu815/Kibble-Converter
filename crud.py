@@ -7,8 +7,8 @@ import uuid
 def create_food(product_name):
     """Create and return a new food"""
 
-    random_id = str(uuid.uuid4())
-    food = Food(food_id=random_id, product_name=product_name)
+    uuid_id = str(uuid.uuid4())
+    food = Food(food_id=uuid_id, product_name=product_name)
 
     db.session.add(food)
     db.session.commit()
