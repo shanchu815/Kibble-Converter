@@ -38,8 +38,9 @@ class FoodIngredient(db.Model):
                         nullable=True)
 
     grains = db.relationship('Grain', backref='food_ingredients')
-    preservatives = db.relationship('Preservative', backref='food_ingredients')
     additives = db.relationship('Additive', backref='food_ingredients')
+    proteins = db.relationship('Protein', backref='food_ingredients')
+    preservatives = db.relationship('Preservative', backref='food_ingredients')
 
     def __repr__(self):
         return f'<Food ingredients id={self.food_ingredient_id} food id={self.food_id}>'
