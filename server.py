@@ -45,12 +45,26 @@ def save_choices():
     protein = request.form.get("proteins")
     preservative = request.form.get("preservatives")
 
+    print(product_name)
+
     new_food = crud.create_food(product_name)
     ingredient_type = crud.get_ingredient_by_combo(ingredient_name, descriptor)
-    grain_type = crud.get_grain_by_id(grain)
-    additive_type = crud.get_additive_by_id(additive)
-    protein_type = crud.get_protein_by_id(protein)
-    preservative_type = crud.get_preservative_by_id(preservative)
+    if grain is not None:
+        grain_type = crud.get_grain_by_id(grain)
+    else:
+        grain_type = None
+    if additive is not None:
+        additive_type = crud.get_additive_by_id(additive)
+    else:
+        additive_type = None
+    if protein is not None:
+        protein_type = crud.get_protein_by_id(protein)
+    else:
+        protein_type = None
+    if preservative is not None:
+        preservative_type = crud.get_preservative_by_id(preservative)
+    else:
+        preservative_type = None
 
     new_food_ingredient = crud.create_food_ingredient(new_food, ingredient_type, 
                                                     grain_type, additive_type, 
@@ -62,13 +76,14 @@ def save_choices():
 def show_result(food_id):
     """Displays the choices as a result page"""
     
-    if food_id not in db.pet_food:
+    if not crud.get_food_by_id(food_id):
         return "Invalid id"
     else:
-        return render_template("results.html", ingredients = db.pet_food[food_id])
-#ask Sean how do i call the pet_food db here
+        return render_template("results.html", ingredients = crud.get_food_by_id(food_id))
 
 if __name__ == '__main__':
+    from model import connect_to_db
     # debug=True gives us error messages in the browser and also "reloads"
     # our web app if we change the code.
+    connect_to_db(app)
     app.run(debug=True, host="0.0.0.0")

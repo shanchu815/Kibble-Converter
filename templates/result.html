@@ -3,8 +3,7 @@
 {% block title %}Your pet food results:{% endblock %}
 
 {% block js %}
-<!-- <script src="/static/data.jsx" type="text/jsx"></script> -->
-<script src="/static/scripts.js"></script>
+<script src="/static/result.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -12,18 +11,15 @@
 <div id=title></div>
 <div id=ingredients></div> -->
 
-Brand name: {{ brand }}
+Product name:
 Note: Pet food studies done by brand names can be biased. Make sure you look at various studies from various sources.
 
-Descriptor: {{ description }}
+Descriptor:
 
-Ingredients by content: {{ first }}, {{ second }}, {{ third }}, {{ fourth }} and {{ fifth }}
+Ingredients by content: 
 
 Ingredients to be explained: 
-{{ cer }}
-{{ oth }}
-{{ pro }}
-{{ pres }}
+
 <a href="/fillout" class="btn btn-lg btn-primary">Click here to convert another food</a>
 <a href="/homepage" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
 {% endblock %}

@@ -1,5 +1,4 @@
 ''' Automates all database functions.'''
-
 import os
 import json
 import crud
@@ -17,10 +16,10 @@ with open('data/data.json') as f:
     ingredient_data = json.loads(f.read())
 
 grain_list = ingredient_data[0]["grains"]
-additive_list = ingredient_data[1]["additives"]
-preservative_list = ingredient_data[2]["preservatives"]
-protein_list = ingredient_data[3]["proteins"]
-ingredient_list = ingredient_data[4]["ingredients"]
+additive_list = ingredient_data[0]["additives"]
+preservative_list = ingredient_data[0]["preservatives"]
+protein_list = ingredient_data[0]["proteins"]
+ingredient_list = ingredient_data[0]["ingredients"]
 
 # movies in db = []
 
@@ -63,7 +62,7 @@ for protein in protein_list:
 for ingredient in ingredient_list:
 
     name = ingredient['name']
-    effect = ingredient['effect']
+    descriptor = ingredient['descriptor']
     details = ingredient['details']
 
-    crud.create_ingredient(name, effect, details)
+    crud.create_ingredient(name, descriptor, details)

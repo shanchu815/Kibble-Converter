@@ -44,7 +44,7 @@ def get_ingredient_by_id(ingredient_id):
 def get_ingredient_by_combo(name, descriptor):
     """get the ingredient by its name & descriptor"""
 
-    return Ingredient.query.filter_by(name = 'name', descriptor = 'descriptor').all()
+    return Ingredient.query.filter(Ingredient.name == name, Ingredient.descriptor == descriptor).first()
 
 def create_grain(grain_id, name, effect, details):
     """create a grain ingredient"""
@@ -110,9 +110,29 @@ def get_protein_by_id(protein_id):
 def create_food_ingredient(food, ingredient, grain, additive, protein, preservative):
     """create a food ingredient"""
 
-    food_ingredient = FoodIngredient(food=food, ingredient=ingredient,
-                                    grain=grain, additive=additive,
-                                    protein=protein, preservative=preservative)
+    if grain is None:
+        grain_id = None
+    else:
+        grain_id = grain.grain_id
+
+    if additive is None:
+        additive_id = None
+    else:
+        additive_id = additive.additive_id
+
+    if protein is None:
+        protein_id = None
+    else:
+        protein_id = protein.protein_id
+
+    if preservative is None:
+        preservative_id = None
+    else:
+        preservative_id = preservative.preservative_id
+
+    food_ingredient = FoodIngredient(food_id=food.food_id, ingredient_id=ingredient.ingredient_id,
+                                    grain_id=grain_id, additive_id=additive_id,
+                                    protein_id=protein_id, preservative_id=preservative_id)
 
     db.session.add(food_ingredient)
     db.session.commit()

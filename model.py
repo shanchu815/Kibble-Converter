@@ -40,7 +40,6 @@ class FoodIngredient(db.Model):
     grains = db.relationship('Grain', backref='food_ingredients')
     preservatives = db.relationship('Preservative', backref='food_ingredients')
     additives = db.relationship('Additive', backref='food_ingredients')
-    #ask if i need other relationship lines here
 
     def __repr__(self):
         return f'<Food ingredients id={self.food_ingredient_id} food id={self.food_id}>'
@@ -115,7 +114,7 @@ def connect_to_db(flask_app, db_uri="postgresql:///pet_food", echo=True):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = False
     #if this is set to False instead of echo, terminal will not show huge long loading data
-    flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    # flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db.app = flask_app
     db.init_app(flask_app)
