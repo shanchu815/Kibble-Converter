@@ -4,22 +4,16 @@
 
 {% block js %}
 <script src="/static/result.js"></script>
+<script>process({{ingredients | tojson}})</script>
+<!-- same error for the first {, the | & }} have the errors "',' expected." -->
 {% endblock %}
 
 {% block body %}
-<!-- <div id=brand></div>
-<div id=title></div>
-<div id=ingredients></div> -->
 
-Product name:
-Note: Pet food studies done by brand names can be biased. Make sure you look at various studies from various sources.
+<div class="results-display" id="display"></div>
 
-Descriptor:
-
-Ingredients by content: 
-
-Ingredients to be explained: 
-
+<a href="/calculator" class="btn btn-lg btn-primary">Click here to find the true protein content</a>
 <a href="/fillout" class="btn btn-lg btn-primary">Click here to convert another food</a>
 <a href="/homepage" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
+
 {% endblock %}
