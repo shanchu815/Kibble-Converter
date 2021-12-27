@@ -2,18 +2,18 @@
 
 {% block title %}Your pet food results:{% endblock %}
 
-{% block js %}
-<script src="/static/result.js"></script>
-<script>process({{ingredients | tojson}})</script>
-<!-- same error for the first {, the | & }} have the errors "',' expected." -->
-{% endblock %}
 
 {% block body %}
 
-<div class="results-display" id="display"></div>
+<div class="results-display" id="display">{{message}}</div>
 
 <a href="/calculator" class="btn btn-lg btn-primary">Click here to find the true protein content</a>
 <a href="/fillout" class="btn btn-lg btn-primary">Click here to convert another food</a>
 <a href="/homepage" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
 
+{% endblock %}
+
+{% block js %}
+<script src="/static/result.js"></script>
+<!-- <script>{{ingredients}}</script> -->
 {% endblock %}

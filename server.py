@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify, redirect, url_for
+from flask import Flask, request, render_template, jsonify, redirect
 from model import connect_to_db
 import crud
 # "__name__" is a special Python variable for the name of the current module
@@ -39,47 +39,58 @@ def save_choices():
 
     product_name = request.form.get("product_name")
     descriptor = request.form.get("descriptor")
-    ingredient_name = request.form.get("ingredient_name")
+    title_ingredient_name = request.form.get("ingredient_name")
+    #change it to title to make it less confusing
     grain = request.form.get("grains")
     additive = request.form.get("additives")
     protein = request.form.get("proteins")
     preservative = request.form.get("preservatives")
 
-    print(product_name)
-
     new_food = crud.create_food(product_name)
-    ingredient_type = crud.get_ingredient_by_combo(ingredient_name, descriptor)
+    title_type = crud.get_title_by_ingredient_name_and_descriptor(title_ingredient_name, descriptor)
+    
+
     if grain is not None:
         grain_type = crud.get_grain_by_id(grain)
-    else:
-        grain_type = None
+        new_food.grains.append(grain_type)
+
     if additive is not None:
         additive_type = crud.get_additive_by_id(additive)
-    else:
-        additive_type = None
+        new_food.additives.append(additive_type)
+
     if protein is not None:
         protein_type = crud.get_protein_by_id(protein)
-    else:
-        protein_type = None
+        new_food.proteins.append(protein_type)
+
     if preservative is not None:
         preservative_type = crud.get_preservative_by_id(preservative)
-    else:
-        preservative_type = None
+        new_food.preservatives.append(preservative_type)
 
-    new_food_ingredient = crud.create_food_ingredient(new_food, ingredient_type, 
-                                                    grain_type, additive_type, 
-                                                    protein_type, preservative_type)
+    crud.update_food(new_food)
 
-    return redirect(url_for('/results/') + new_food.food_id)
+    # new_food_ingredient = food.grains.append(new_food, ingredient_type, 
+    #                                                 grain_type, additive_type, 
+    #                                                 protein_type, preservative_type)
+
+    return redirect('/results/' + new_food.food_id)
 
 @app.route('/results/<food_id>')
 def show_result(food_id):
     """Displays the choices as a result page"""
+    pet_food = crud.get_food_by_id(food_id)
+    print("**************")
+    print(pet_food.ingredients)
+
+    message = f"Your pet food is {pet_food.product_name}." 
     
+    for ingredient in pet_food.ingredients:
+        message = message + f"""Since it uses the {ingredient.descriptor} rule , 
+        it {ingredient.details}."""
+
     if not crud.get_food_by_id(food_id):
         return "Invalid id"
     else:
-        return render_template("results.html", ingredients = crud.get_food_by_id(food_id))
+        return render_template("result.html", message = message)
 
 if __name__ == '__main__':
     from model import connect_to_db

@@ -1,11 +1,12 @@
 'use strict';
 
 
-function process(ingredients) {
-
-}
 
 const display = document.getElementById("display");
+
+
+display.addEventListener()
+
 
 // so if i am passing ingredients (a python object stored in a psql database) to an html page
 // & i want my script to take in ingredients, read its attributes and use those attributes to 

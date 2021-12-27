@@ -11,7 +11,11 @@ class Food(db.Model):
     food_id = db.Column(db.String, primary_key=True)
     product_name = db.Column(db.String)
 
-    ingredients = db.relationship('Ingredient', secondary='food_ingredients', backref='foods')
+    title_ingredients = db.relationship('TitleIngredient', secondary='food_ingredients', backref='foods')
+    grains = db.relationship('Grain', secondary='food_grains', backref='foods')
+    additives = db.relationship('Additive', secondary='food_additives', backref='foods')
+    proteins = db.relationship('Protein', secondary='food_proteins', backref='foods')
+    preservatives = db.relationship('Preservative', secondary='food_preservatives', backref='foods')
 
     def __repr__(self):
         return f'<Food product name={self.product_name} food id={self.food_id}>'
@@ -23,41 +27,50 @@ class FoodIngredient(db.Model):
 
     food_ingredient_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
-    ingredient_id = db.Column(db.Integer, db.ForeignKey('ingredients.ingredient_id'))
-    grain_id = db.Column(db.String,
-                        db.ForeignKey('grains.grain_id'),
-                        nullable=True)
-    additive_id = db.Column(db.String,
-                        db.ForeignKey('additives.additive_id'),
-                        nullable=True)
-    protein_id = db.Column(db.String,
-                        db.ForeignKey('proteins.protein_id'),
-                        nullable=True)
-    preservative_id = db.Column(db.String,
-                        db.ForeignKey('preservatives.preservative_id'),
-                        nullable=True)
+    title_id = db.Column(db.Integer, db.ForeignKey('title_ingredients.title_id'))
+    # grain_id = db.Column(db.String,
+    #                     db.ForeignKey('grains.grain_id'),
+    #                     nullable=True)
+    # additive_id = db.Column(db.String,
+    #                     db.ForeignKey('additives.additive_id'),
+    #                     nullable=True)
+    # protein_id = db.Column(db.String,
+    #                     db.ForeignKey('proteins.protein_id'),
+    #                     nullable=True)
+    # preservative_id = db.Column(db.String,
+    #                     db.ForeignKey('preservatives.preservative_id'),
+    #                     nullable=True)
 
-    grains = db.relationship('Grain', backref='food_ingredients')
-    additives = db.relationship('Additive', backref='food_ingredients')
-    proteins = db.relationship('Protein', backref='food_ingredients')
-    preservatives = db.relationship('Preservative', backref='food_ingredients')
+    # grains = db.relationship('Grain', backref='food_ingredients')
+    # additives = db.relationship('Additive', backref='food_ingredients')
+    # proteins = db.relationship('Protein', backref='food_ingredients')
+    # preservatives = db.relationship('Preservative', backref='food_ingredients')
 
     def __repr__(self):
         return f'<Food ingredients id={self.food_ingredient_id} food id={self.food_id}>'
 
 
-class Ingredient(db.Model):
-    """The primary normal ingredient & its data"""
+class TitleIngredient(db.Model):
+    """The primary named ingredient & its data"""
 
-    __tablename__ = 'ingredients'
+    __tablename__ = 'title_ingredients'
 
-    ingredient_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    name = db.Column(db.String)
+    title_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    title_ingredient_name = db.Column(db.String)
     descriptor = db.Column(db.String)
     details = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Ingredient ingredient id={self.ingredient_id} ingredient name={self.name}>'
+        return f'<Title id={self.title_id} title ingredient name={self.title_ingredient_name}>'
+
+class FoodGrain(db.Model):
+    """Grain that's in this specific food"""
+
+    __tablename__ = 'food_grains'
+
+    food_grain_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
+    grain_id = db.Column(db.String, db.ForeignKey('grains.grain_id'))
 
 class Grain(db.Model):
     """Data on grains"""
@@ -65,6 +78,9 @@ class Grain(db.Model):
     __tablename__ = 'grains'
 
     grain_id = db.Column(db.String, primary_key=True)
+    # food_id = db.Column(db.String,
+    #                     db.ForeignKey('foods.food_id'),
+    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -72,12 +88,24 @@ class Grain(db.Model):
     def __repr__(self):
         return f'<Grain grain_id={self.grain_id} grain name={self.name}>'
 
+class FoodAdditive(db.Model):
+    """Additive that's in this specific food"""
+
+    __tablename__ = 'food_additives'
+
+    food_additive_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
+    additive_id = db.Column(db.String, db.ForeignKey('additives.additive_id'))
+
 class Additive(db.Model):
     """Data on additives"""
 
     __tablename__ = 'additives'
 
     additive_id = db.Column(db.String, primary_key=True)
+    # food_id = db.Column(db.String,
+    #                     db.ForeignKey('foods.food_id'),
+    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -85,12 +113,24 @@ class Additive(db.Model):
     def __repr__(self):
         return f'<Additive additive_id={self.additive_id} additive name={self.name}>'
 
+class FoodProtein(db.Model):
+    """Protein that's in this specific food"""
+
+    __tablename__ = 'food_proteins'
+
+    food_grain_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
+    protein_id = db.Column(db.String, db.ForeignKey('proteins.protein_id'))
+
 class Protein(db.Model):
     """Data on the protein type"""
 
     __tablename__ = 'proteins'
 
     protein_id = db.Column(db.String, primary_key=True)
+    # food_id = db.Column(db.String,
+    #                     db.ForeignKey('foods.food_id'),
+    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -98,12 +138,24 @@ class Protein(db.Model):
     def __repr__(self):
         return f'<Protein protein_id={self.protein_id} protein name={self.name}>'
 
+class FoodPreservative(db.Model):
+    """Preservative that's in this specific food"""
+
+    __tablename__ = 'food_preservatives'
+
+    food_preservative_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
+    preservative_id = db.Column(db.String, db.ForeignKey('preservatives.preservative_id'))
+
 class Preservative(db.Model):
     """Data on preservatives"""
 
     __tablename__ = 'preservatives'
 
     preservative_id = db.Column(db.String, primary_key=True)
+    # food_id = db.Column(db.String,
+    #                     db.ForeignKey('foods.food_id'),
+    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)

@@ -2,10 +2,6 @@
 
 {% block title %}Fill out the form to see what's in your pet's food{% endblock %}
 
-{% block js %}
-<script src="/static/fillout.js"></script>
-{% endblock %}
-
 {% block body %}
 <form action="/save-list" id="ingredients-form" method="POST">
     <div class="fill1" id="fill1">
@@ -98,4 +94,8 @@
         <input type="submit"> <input type="reset" onclick="return confirm_reset();" value="Clear form">
     </div>
     </form>
+{% endblock %}
+
+{% block js %}
+<script src="/static/fillout.js"></script>
 {% endblock %}
