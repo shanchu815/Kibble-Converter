@@ -84,71 +84,95 @@
           "details": "This is 95% poultry minimum."}, 
 
           {"name": "Poultry", 
-            "descriptor": "with/dinner", 
-            "details": "This is 25-95% poultry. Ingredients named afterwards make up at least 3% each."}, 
+            "descriptor": "dinner", 
+            "details": "This is 25-95% poultry, not including water. If more than 1 ingredient is listed, they must make up at least 25% total."}, 
 
           {"name": "Poultry", 
             "descriptor": "flavor", 
             "details": "This is 0% actual poultry. There may be stock or some other substitute used."}, 
 
+          {"name": "Poultry", 
+            "descriptor": "with", 
+            "details": "This is at least 3% poultry."}, 
+  
           {"name": "Beef/Deer", 
             "descriptor": "None", 
             "details": "This is 95% beef/deer minimum."}, 
 
           {"name": "Beef/Deer", 
-            "descriptor": "with/dinner", 
-            "details": "This is 25-95% beef/deer. Ingredients named afterwards make up at least 3% each."}, 
+            "descriptor": "dinner", 
+            "details": "This is 25-95% beef/deer, not including water. If more than 1 ingredient is listed, they must make up at least 25% total."}, 
 
           {"name": "Beef/Deer", 
             "descriptor": "flavor", 
             "details": "This is 0% actual beef/deer. There may be stock or some other substitute used."}, 
 
+          {"name": "Beef/Deer", 
+            "descriptor": "with", 
+            "details": "This is at least 3% beef/deer."}, 
+    
           {"name": "Fish/Seafood", 
             "descriptor": "None", 
             "details": "This is 95% fish/seafood minimum."}, 
 
           {"name": "Fish/Seafood", 
-            "descriptor": "with/dinner", 
-            "details": "This is 25-95% fish/seafood. Ingredients named afterwards make up at least 3% each."}, 
+            "descriptor": "dinner", 
+            "details": "This is 25-95% fish/seafood, not including water. If more than 1 ingredient is listed, they must make up at least 25% total."}, 
 
           {"name": "Fish/Seafood", 
             "descriptor": "flavor", 
             "details": "This is 0% actual fish/seafood. There may be stock or some other substitute used."}, 
 
+          {"name": "Fish/Seafood", 
+            "descriptor": "with", 
+            "details": "This is at least 3% fish/seafood."}, 
+    
           {"name": "Dairy", 
             "descriptor": "None", 
             "details": "This is 95% dairy minimum."}, 
 
           {"name": "Dairy", 
-            "descriptor": "with/dinner", 
-            "details": "This is 25-95% dairy. Ingredients named afterwards make up at least 3% each."}, 
+            "descriptor": "dinner", 
+            "details": "This is 25-95% dairy, not including water. If more than 1 ingredient is listed, they must make up at least 25% total."}, 
 
           {"name": "Dairy", 
             "descriptor": "flavor", 
-            "details": "This is 0% actual dairy. There may be stock or some other substitute used."}, 
+            "details": "This is 0% actual dairy. There may be whey or some other substitute used."}, 
 
+          {"name": "Dairy", 
+            "descriptor": "with", 
+            "details": "This is at least 3% dairy."}, 
+      
           {"name": "Pork", 
             "descriptor": "None", 
             "details": "This is 95% pork minimum."}, 
 
           {"name": "Pork", 
-            "descriptor": "with/dinner", 
-            "details": "This is 25-95% pork. Ingredients named afterwards make up at least 3% each."}, 
+            "descriptor": "dinner", 
+            "details": "This is 25-95% pork, not including water. If more than 1 ingredient is listed, they must make up at least 25% total."}, 
 
           {"name": "Pork", 
             "descriptor": "flavor", 
             "details": "This is 0% actual pork. There may be stock or some other substitute used."}, 
 
+          {"name": "Pork", 
+            "descriptor": "with", 
+            "details": "This is at least 3% pork."}, 
+      
           {"name": "Veggie/Grain/Fruit", 
             "descriptor": "None", 
             "details": "This is 95% vegetable/grain/fruit minimum."}, 
 
           {"name": "Veggie/Grain/Fruit", 
-            "descriptor": "with/dinner", 
-            "details": "This is 25-95% vegetable/grain/fruit. Ingredients named afterwards make up at least 3% each."}, 
+            "descriptor": "dinner", 
+            "details": "This is 25-95% vegetable/grain/fruit, not including water. If more than 1 ingredient is listed, they must make up at least 25% total."}, 
 
           {"name": "Veggie/Grain/Fruit", 
             "descriptor": "flavor", 
-            "details": "This is 0% actual vegetable/grain/fruit. There may be stock or some other substitute used."}]
+            "details": "This is 0% actual vegetable/grain/fruit. There may be stock or some other substitute used."},
+
+          {"name": "Veggie/Grain/Fruit", 
+            "descriptor": "with", 
+            "details": "This is at least 3% vegetable/grain/fruit."}]
   }
 ]
