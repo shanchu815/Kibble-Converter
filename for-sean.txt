@@ -1,0 +1,92 @@
+so this is how i want the result.html page to turn out
+(the dashed lines are to represent the div)
+
+~~~~~~~~~~~localhost5000.com/results/<food_id>~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------------
+| Your product is {pet_food.product_name}:                       |
+|                                                                |
+| >The first ingredient is {pet_food.title_ingredient.name}.     |
+|                                                                |
+| >This product uses the {pet_food.title_ingredient.descriptor}  |
+| rule, which means:                                             |
+| {{pet_food.title_ingredient.id}.details}*                      |
+|                                                                |
+| *Please make sure to check the ingredient label on the         |
+| back of the product to see if                                  |
+| {pet_food.title_ingredient.name} is the first ingredient       |
+| listed there. (If it is not, then it is not the primary        |
+| ingredient of the product **by weight**.                       |
+|                                                                |
+| >This product contains the following ingredients:              |
+| >> {pet_food.grains.name}:                                     |
+| >>> {pet_food.grains.effect}                                   |
+| >>> {pet_food.grains.details}                                  |
+|                                                                |
+| >> {pet_food.proteins.name}:                                   |
+| >>> {pet_food.proteins.effect}                                 |
+| >>> {pet_food.proteins.details}                                |
+|                                                                |
+| >> {pet_food.additives.name}:                                  |
+| >>> {pet_food.additives.effect}                                |
+| >>> {pet_food.additives.details}                               |
+|                                                                |
+| >> {pet_food.preservatives.name}:                              |
+| >>> {pet_food.preservatives.effect}                            |
+| >>> {pet_food.preservatives.details}                           |
+------------------------------------------------------------------
+
+[t] [f] [i] <- twitter, facebook & instagram share buttons
+
+Would you also like to calculate the true protein content?
+[Calculate!] <- button redirecting to /calculator
+[Check out another product!] <- redirects to /fillout
+
+~~~~~~~~~~~~~~~~~~~~~~END EXAMPLE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+future notes for the random dog/cat pic api:
+    i want to have to embed it into the base.html template so that
+    each page has a random dog/cat photo at the top of the <body>
+    before the {block}s
+
+    along with an evtlistener function/script where if the page reloads/refreshes
+    then the photo will also refresh itself
+    unless that already happens (check with sean first if this step is necessary)
+
+future notes for the random dog/cat fact api:
+    same position & script as the photo api
+
+POSSIBLE RESULT SHOWCASE EXAMPLE:
+
+~~localhost5000.com/results/110e4a94-69c4-4593-acfc-fba3c9311423~~
+------------------------------------------------------------------
+| Your product is Purina Beef Benefuls:                          |
+|                                                                |
+| >The first ingredient is Beef/Deer.                            |
+|                                                                |
+| >This product uses the with rule, which means:                 |
+| This is at least 3% beef/deer.*                                |
+|                                                                |
+| *Please make sure to check the ingredient label on the         |
+| back of the product to see if                                  |
+| Beef/Deer is the first ingredient                              |
+| listed there. (If it is not, then it is not the primary        |
+| ingredient of the product **by weight**.                       |
+|                                                                |
+| >This product contains the following ingredients:              |
+| >> Corn:                                                       |
+| >>> Used as a source of carbs & fiber                          |
+| >>> Metabolizes into sugar in the gut                          |
+|                                                                |
+| >> Meat meal:                                                  |
+| >>> Rendered (or processed) product from animal tissues        |
+| >>> Excludes hair, hooves, horn, hide, manure, or GI contents  |
+|                                                                |
+| >> N/A                                                         |
+|                                                                |
+| >> N/A                                                         |
+------------------------------------------------------------------
+
+[t] [f] [i]
+
+Would you also like to calculate the true protein content?
+[Calculate!]                           [Check out another product!]
