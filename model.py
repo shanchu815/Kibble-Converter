@@ -55,7 +55,7 @@ class TitleIngredient(db.Model):
 
     __tablename__ = 'title_ingredients'
 
-    title_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    title_id = db.Column(db.Integer, primary_key=True)
     title_ingredient_name = db.Column(db.String)
     descriptor = db.Column(db.String)
     details = db.Column(db.String)
@@ -69,8 +69,8 @@ class FoodGrain(db.Model):
     __tablename__ = 'food_grains'
 
     food_grain_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
-    grain_id = db.Column(db.String, db.ForeignKey('grains.grain_id'))
+    food_id = db.Column(db.String, db.ForeignKey('foods.food_id'), nullable = False)
+    grain_id = db.Column(db.String, db.ForeignKey('grains.grain_id'), nullable = False)
 
 class Grain(db.Model):
     """Data on grains"""

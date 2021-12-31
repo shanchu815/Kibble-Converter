@@ -4,6 +4,7 @@ import json
 import crud
 import model
 import server
+import random
 
 os.system('dropdb pet_food')
 os.system('createdb pet_food')
@@ -65,4 +66,20 @@ for ingredient in ingredient_list:
     descriptor = ingredient['descriptor']
     details = ingredient['details']
 
-    crud.create_ingredient(name, descriptor, details)
+    crud.create_title_ingredient(name, descriptor, details)
+
+for food_index in range(4):
+
+    title_ingredient = random.choice(model.TitleIngredient.query.all())
+    grain = random.choice(model.Grain.query.all())
+    protein = random.choice(model.Protein.query.all())
+    additive = random.choice(model.Additive.query.all())
+    preservative = random.choice(model.Preservative.query.all())
+
+    food = crud.create_food("food"+ str(food_index))
+
+    crud.add_title_ingredients_to_food(food, title_ingredient)
+    crud.add_grain_to_food(food, grain)
+    crud.add_protein_to_food(food, protein)
+    crud.add_additive_to_food(food, additive)
+    crud.add_preservative_to_food(food, preservative)

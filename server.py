@@ -38,35 +38,31 @@ def save_choices():
     """Saves the chosen form options as a new food object"""
 
     product_name = request.form.get("product_name")
+    ingredient_name = request.form.get("ingredient_name")
     descriptor = request.form.get("descriptor")
-    title_ingredient_name = request.form.get("ingredient_name")
-    #change it to title to make it less confusing
     grain = request.form.get("grains")
     additive = request.form.get("additives")
-    protein = request.form.get("proteins")
+    protein = request.form.get("proteins") 
     preservative = request.form.get("preservatives")
 
-    new_food = crud.create_food(product_name)
-    title_type = crud.get_title_by_ingredient_name_and_descriptor(title_ingredient_name, descriptor)
+    if (product_name is not None and
+        ingredient_name is not None and 
+        descriptor is not None and 
+        grain is not None and
+        additive is not None and
+        protein is not None and
+        preservative is not None):
+         
+        new_food = crud.create_food(product_name)
     
+        crud.add_title_ingredients_to_food(new_food, crud.get_details_by_ingredient_name_and_descriptor(ingredient_name, descriptor))
+        crud.add_grain_to_food(new_food, crud.get_grain_by_id(grain))
+        crud.add_additive_to_food(new_food, crud.get_additive_by_id(additive))
+        crud.add_protein_to_food(new_food, crud.get_protein_by_id(protein))
+        crud.add_preservative_to_food(new_food, crud.get_preservative_by_id(preservative))
 
-    if grain is not None:
-        grain_type = crud.get_grain_by_id(grain)
-        new_food.grains.append(grain_type)
-
-    if additive is not None:
-        additive_type = crud.get_additive_by_id(additive)
-        new_food.additives.append(additive_type)
-
-    if protein is not None:
-        protein_type = crud.get_protein_by_id(protein)
-        new_food.proteins.append(protein_type)
-
-    if preservative is not None:
-        preservative_type = crud.get_preservative_by_id(preservative)
-        new_food.preservatives.append(preservative_type)
-
-    crud.update_food(new_food)
+    else:
+        return redirect('/fillout')
 
     # new_food_ingredient = food.grains.append(new_food, ingredient_type, 
     #                                                 grain_type, additive_type, 
@@ -76,21 +72,24 @@ def save_choices():
 
 @app.route('/results/<food_id>')
 def show_result(food_id):
-    """Displays the choices as a result page"""
-    pet_food = crud.get_food_by_id(food_id)
-    print("**************")
-    print(pet_food.ingredients)
-
-    message = f"Your pet food is {pet_food.product_name}." 
-    
-    for ingredient in pet_food.ingredients:
-        message = message + f"""Since it uses the {ingredient.descriptor} rule , 
-        it {ingredient.details}."""
+    """Displays the choices as a unique shareable result page"""
 
     if not crud.get_food_by_id(food_id):
         return "Invalid id"
     else:
-        return render_template("result.html", message = message)
+        
+        food = crud.get_food_by_id(food_id)
+
+        print(food)
+        print(food.title_ingredients)
+        # message = f"Your pet food is {pet_food.product_name}." 
+    
+        # for ingredient in pet_food.ingredients:
+            # message = message + f"""Since it uses the {ingredient.descriptor} rule , 
+            # it {ingredient.details}."""
+
+        return render_template("result.html", food = food)
+
 
 if __name__ == '__main__':
     from model import connect_to_db

@@ -5,10 +5,10 @@ import uuid
 
 # Food functions
 
-def update_food(food):
+# def update_food(food):
 
-    db.session.add(food)
-    db.session.commit()
+#     db.session.add(food)
+#     db.session.commit()
 
 def create_food(product_name):
     """Create and return a new food"""
@@ -20,6 +20,49 @@ def create_food(product_name):
     db.session.commit()
 
     return food
+
+def add_title_ingredients_to_food(food, title_ingredient):
+
+    food.title_ingredients.append(title_ingredient)
+
+    db.session.add(food)
+    db.session.commit()
+    
+def add_grain_to_food(food, grain):
+
+    food.grains.append(grain)
+
+    db.session.add(food)
+    db.session.commit()
+
+def add_additive_to_food(food, additive):
+
+    food.additives.append(additive)
+
+    db.session.add(food)
+    db.session.commit()
+
+def add_protein_to_food(food, protein):
+
+    food.proteins.append(protein)
+
+    db.session.add(food)
+    db.session.commit()
+
+def add_preservative_to_food(food, preservative):
+
+    food.preservatives.append(preservative)
+
+    db.session.add(food)
+    db.session.commit()
+
+
+def add_descriptor_to_title_ingredient(title_ingredient, descriptor):
+
+    title_ingredient.descriptor = descriptor 
+
+    db.session.add(title_ingredient)
+    db.session.commit()
 
 def get_food_by_id(food_id):
     """get the food by its id/url ending"""
@@ -48,11 +91,11 @@ def get_title_ingredient_by_id(title_id):
 
     return TitleIngredient.query.get(title_id)
 
-def get_title_by_ingredient_name_and_descriptor(title_ingredient_name, descriptor):
-    """get the title type by its name & descriptor"""
+def get_details_by_ingredient_name_and_descriptor(ingredient_name, descriptor):
+    """get the details by its name & descriptor"""
 
-    title_type = TitleIngredient.query.filter(TitleIngredient.title_ingredient_name == title_ingredient_name,
-                                            TitleIngredient.descriptor == descriptor).first()
+    title_type = TitleIngredient.query.filter(TitleIngredient.title_ingredient_name == ingredient_name,
+                                            TitleIngredient.descriptor == descriptor).one()
 
     return title_type
 

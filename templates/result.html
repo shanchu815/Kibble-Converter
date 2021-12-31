@@ -5,7 +5,16 @@
 
 {% block body %}
 
-<div class="results-display" id="display">{{message}}</div>
+<!-- <div class="results-display" id="display">{{message}}</div> -->
+
+
+
+    
+    {% if food.title_ingredients is defined and food.title_ingredients|length > 0 %}
+     <h2> {{ food.title_ingredients[0].descriptor }}</h2>  
+    {% endif %}
+
+
 
 <a href="/calculator" class="btn btn-lg btn-primary">Click here to find the true protein content</a>
 <a href="/fillout" class="btn btn-lg btn-primary">Click here to convert another food</a>
