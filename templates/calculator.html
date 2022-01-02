@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Find out the true protein content in your pet food!{% endblock %}
+{% block title %}Find out the true protein content in your pet food!*{% endblock %}
 
 {% block body %}
 <h3>True protein calculators</h3>
@@ -31,12 +31,14 @@
     </form>
 <p>True protein content: <span id="true-protein2"></span></p>
 
-<p>When checking for true protein content, there may not be much of a difference if you are
+<p>*When checking for true protein content, there may not be much of a difference if you are
     comparing two canned wet foods, but there may be a big difference if you're comparing kibble 
     to wet food. Please note that you should still check the ingredients, as this only determines 
     the quantity, not necessarily quality of protein in your pet food.
 </p>
-
+<a href="/" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
+<br>
+<a href="/disclaimer" class="btn btn-lg btn-primary">Click here to convert your pet food</a>
 {% endblock %}
 
 {% block js %}
