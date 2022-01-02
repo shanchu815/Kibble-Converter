@@ -5,14 +5,15 @@
 {% block body %}
 <h3>True protein calculators</h3>
 
-<!-- insert an image here showing the crude protein & moisture contents circled on a ingredient label -->
+<img src="/data/label.jpg" id="example-img" class="example-img">
 
 <h2>Pet food 1</h2>
     <form id=calc1>
     <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
-    <input type="number" id="crude-protein" name="crude-protein" step=".01"/>
+    <input type="number" id="crude-protein" name="crude-protein" step=".01" min="0.01" max="99.99"/>
+    <br>
     <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
-    <input type="number" id="moisture" name="moisture" step=".01"/>
+    <input type="number" id="moisture" name="moisture" step=".01" min="0.01" max="99.99"/>
     <input type="submit" value="Submit"/>
     <input type="reset" value="Reset"/>
     </form>
@@ -21,16 +22,20 @@
 <h2>Pet food 2</h2>
     <form id=calc2>
     <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
-    <input type="number" id="crude-protein" name="crude-protein" step=".01"/>
+    <input type="number" id="crude-protein" name="crude-protein" step=".01" min="0.01" max="99.99"/>
+    <br>
     <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
-    <input type="number" id="moisture" name="moisture" step=".01"/>
+    <input type="number" id="moisture" name="moisture" step=".01" min="0.01" max="99.99"/>
     <input type="submit" value="Submit"/>
     <input type="reset" value="Reset"/>
     </form>
 <p>True protein content: <span id="true-protein2"></span></p>
 
-<!-- insert some text about how why it's necessary to calculate this stuff
-kibble vs kibble, canned vs canned, canned vs kibble -->
+<p>When checking for true protein content, there may not be much of a difference if you are
+    comparing two canned wet foods, but there may be a big difference if you're comparing kibble 
+    to wet food. Please note that you should still check the ingredients, as this only determines 
+    the quantity, not necessarily quality of protein in your pet food.
+</p>
 
 {% endblock %}
 

@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify, redirect
+from flask import Flask, request, render_template, redirect
 from model import connect_to_db
 import crud
 # "__name__" is a special Python variable for the name of the current module
@@ -47,26 +47,22 @@ def save_choices():
 
     if (product_name is not None and
         ingredient_name is not None and 
-        descriptor is not None and 
-        grain is not None and
-        additive is not None and
-        protein is not None and
-        preservative is not None):
+        descriptor is not None):
          
         new_food = crud.create_food(product_name)
-    
         crud.add_title_ingredients_to_food(new_food, crud.get_details_by_ingredient_name_and_descriptor(ingredient_name, descriptor))
-        crud.add_grain_to_food(new_food, crud.get_grain_by_id(grain))
-        crud.add_additive_to_food(new_food, crud.get_additive_by_id(additive))
-        crud.add_protein_to_food(new_food, crud.get_protein_by_id(protein))
-        crud.add_preservative_to_food(new_food, crud.get_preservative_by_id(preservative))
+
+        if grain is not None:
+            crud.add_grain_to_food(new_food, crud.get_grain_by_id(grain))
+        if additive is not None:
+            crud.add_additive_to_food(new_food, crud.get_additive_by_id(additive))
+        if protein is not None:
+            crud.add_protein_to_food(new_food, crud.get_protein_by_id(protein))
+        if preservative is not None:
+            crud.add_preservative_to_food(new_food, crud.get_preservative_by_id(preservative))
 
     else:
         return redirect('/fillout')
-
-    # new_food_ingredient = food.grains.append(new_food, ingredient_type, 
-    #                                                 grain_type, additive_type, 
-    #                                                 protein_type, preservative_type)
 
     return redirect('/results/' + new_food.food_id)
 
@@ -76,17 +72,8 @@ def show_result(food_id):
 
     if not crud.get_food_by_id(food_id):
         return "Invalid id"
-    else:
-        
+    else:        
         food = crud.get_food_by_id(food_id)
-
-        print(food)
-        print(food.title_ingredients)
-        # message = f"Your pet food is {pet_food.product_name}." 
-    
-        # for ingredient in pet_food.ingredients:
-            # message = message + f"""Since it uses the {ingredient.descriptor} rule , 
-            # it {ingredient.details}."""
 
         return render_template("result.html", food = food)
 

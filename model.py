@@ -28,23 +28,6 @@ class FoodIngredient(db.Model):
     food_ingredient_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     food_id = db.Column(db.String, db.ForeignKey('foods.food_id'))
     title_id = db.Column(db.Integer, db.ForeignKey('title_ingredients.title_id'))
-    # grain_id = db.Column(db.String,
-    #                     db.ForeignKey('grains.grain_id'),
-    #                     nullable=True)
-    # additive_id = db.Column(db.String,
-    #                     db.ForeignKey('additives.additive_id'),
-    #                     nullable=True)
-    # protein_id = db.Column(db.String,
-    #                     db.ForeignKey('proteins.protein_id'),
-    #                     nullable=True)
-    # preservative_id = db.Column(db.String,
-    #                     db.ForeignKey('preservatives.preservative_id'),
-    #                     nullable=True)
-
-    # grains = db.relationship('Grain', backref='food_ingredients')
-    # additives = db.relationship('Additive', backref='food_ingredients')
-    # proteins = db.relationship('Protein', backref='food_ingredients')
-    # preservatives = db.relationship('Preservative', backref='food_ingredients')
 
     def __repr__(self):
         return f'<Food ingredients id={self.food_ingredient_id} food id={self.food_id}>'
@@ -78,9 +61,6 @@ class Grain(db.Model):
     __tablename__ = 'grains'
 
     grain_id = db.Column(db.String, primary_key=True)
-    # food_id = db.Column(db.String,
-    #                     db.ForeignKey('foods.food_id'),
-    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -103,9 +83,6 @@ class Additive(db.Model):
     __tablename__ = 'additives'
 
     additive_id = db.Column(db.String, primary_key=True)
-    # food_id = db.Column(db.String,
-    #                     db.ForeignKey('foods.food_id'),
-    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -128,9 +105,6 @@ class Protein(db.Model):
     __tablename__ = 'proteins'
 
     protein_id = db.Column(db.String, primary_key=True)
-    # food_id = db.Column(db.String,
-    #                     db.ForeignKey('foods.food_id'),
-    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)
@@ -153,9 +127,6 @@ class Preservative(db.Model):
     __tablename__ = 'preservatives'
 
     preservative_id = db.Column(db.String, primary_key=True)
-    # food_id = db.Column(db.String,
-    #                     db.ForeignKey('foods.food_id'),
-    #                     nullable=True)
     name = db.Column(db.String)
     effect = db.Column(db.String)
     details = db.Column(db.String)

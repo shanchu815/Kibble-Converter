@@ -5,24 +5,55 @@
 
 {% block body %}
 
-<!-- <div class="results-display" id="display">{{message}}</div> -->
+<div class="results-display" id="display">
 
+    <h2> Your product is {{ food.product_name }}:</h2>
 
+    <h3>This product uses the {{ food.title_ingredients[0].descriptor }} rule, which means:</h3>
+    <p>
+        {{ food.title_ingredients[0].details }}*
+    <br>                                                              
+      *Please make sure to check the ingredient label on the back of the product to see if 
+      {{ food.title_ingredients[0].title_ingredient_name }} is the first ingredient       
+      listed there. (If it is not, then it is not the primary ingredient of the product **by weight**.)
+    </p> 
 
-    
-    {% if food.title_ingredients is defined and food.title_ingredients|length > 0 %}
-     <h2> {{ food.title_ingredients[0].descriptor }}</h2>  
+    <h3>This product contains the following ingredients:</h3>
+
+    {% if food.grains is defined and food.grains|length > 0 %}
+        <h4>{{ food.grains[0].name }}:</h4>
+        <p>- {{ food.grains[0].effect }}</p>
+        <p>- {{ food.grains[0].details }}</p>
     {% endif %}
 
+    {% if food.proteins is defined and food.proteins|length > 0 %}
+        <h4>{{ food.proteins[0].name }}:</h4>
+        <p>- {{ food.proteins[0].effect }}</p>
+        <p>- {{ food.proteins[0].details }}</p>
+    {% endif %}
 
+    {% if food.additives is defined and food.additives|length > 0 %}
+        <h4>{{ food.additives[0].name }}:</h4>
+        <p>- {{ food.additives[0].effect }}</p>
+        <p>- {{ food.additives[0].details }}</p>
+    {% endif %}
+
+    {% if food.preservatives is defined and food.preservatives|length > 0 %}
+        <h4>{{ food.preservatives[0].name }}:</h4>
+        <p>- {{ food.preservatives[0].effect }}</p>
+        <p>- {{ food.preservatives[0].details }}</p>
+    {% endif %}
+
+</div>
 
 <a href="/calculator" class="btn btn-lg btn-primary">Click here to find the true protein content</a>
+<br>
 <a href="/fillout" class="btn btn-lg btn-primary">Click here to convert another food</a>
+<br>
 <a href="/homepage" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
 
 {% endblock %}
 
 {% block js %}
 <script src="/static/result.js"></script>
-<!-- <script>{{ingredients}}</script> -->
 {% endblock %}
