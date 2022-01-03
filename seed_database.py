@@ -13,7 +13,7 @@ model.connect_to_db(server.app)
 model.db.create_all()
 
 
-with open('data/data.json') as f:
+with open('static/data/data.json') as f:
     ingredient_data = json.loads(f.read())
 
 grain_list = ingredient_data[0]["grains"]
