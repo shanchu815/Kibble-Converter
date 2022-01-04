@@ -4,9 +4,7 @@ import crud
 # "__name__" is a special Python variable for the name of the current module
 # Flask wants to know this to know what any imported things are relative to.
 app = Flask(__name__)
-
 # A secret key is needed to use Flask sessioning features
-
 app.secret_key = 'W33d1sl33t1845!'
 
 @app.route('/')
@@ -77,6 +75,37 @@ def show_result(food_id):
 
         return render_template("result.html", food = food)
 
+"""Cat photo api"""
+#x-api-key = 74a565ba-44ea-412b-b5e2-845bf9f18314
+"""Use it as the 'x-api-key' header when making any request to the API, 
+or by adding as a query string parameter e.g. 
+'api_key=74a565ba-44ea-412b-b5e2-845bf9f18314'"""
+# https://docs.thecatapi.com/example-by-type
+# For Static Images - Request a new Image with https://api.thecatapi.com/images/search?mime_types=jpg,png
+
+#Random Dog fact api
+"""https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all to get all the facts at once.
+Change all to parameter ?number= to specify the number of facts you want to receive."""
+# https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1 returns:
+# [
+#   {
+#       "fact": "Many foot disorders in dogs are caused by long toenails."
+#   }
+# ]
+
+"""Random Cat fact api"""
+# https://catfact.ninja/fact?max_length=140 returns:
+# {"fact":"The Cat Fanciers Association (CFA) recognizes 44 breeds of cats.","length":64}
+
+# Example request: curl --location --request GET 'https://catfact.ninja/fact?max_length=140' \
+# --header 'Accept: application/json'
+
+"""Random Dog photo api"""
+# https://dog.ceo/api/breeds/image/random returns:
+# {
+#     "message": "https://images.dog.ceo/breeds/redbone/n02090379_1448.jpg",
+#     "status": "success"
+# }
 
 if __name__ == '__main__':
     from model import connect_to_db
