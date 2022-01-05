@@ -14,13 +14,7 @@ function randomImage(){
     }
 
     else {
-            // send a fetch request to a new server route /getCatImgUrl
             fetch('/api/get_cat_image')
-            // in server.py
-            // create /getCatImgUrl route 
-            // const catKey = '74a565ba-44ea-412b-b5e2-845bf9f18314';
-            // let catPicUrl = imageURL + catKey;
-            // in 
             .then(response => response.text())
             .then(urlText => {
             image.src = `${urlText}`;
@@ -41,13 +35,6 @@ function randomFact(){
             console.log (jsonData[0])
         });
     }
-
-    // [
-    //     {
-    //           "fact": "Many foot disorders in dogs are caused by long toenails."
-    //     }
-    // ]
-        
 
     else {
         fetch('https://catfact.ninja/fact?max_length=140')

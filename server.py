@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 # A secret key is needed to use Flask sessioning features
 app.secret_key = 'W33d1sl33t1845!'
-cat_key = os.environ['key']
+cat_key = os.environ['API_KEY']
 
 @app.route('/')
 def start_here():
@@ -86,10 +86,9 @@ def get_cat_image():
 
 
 """Cat photo api"""
-#x-api-key = 74a565ba-44ea-412b-b5e2-845bf9f18314
 """Use it as the 'x-api-key' header when making any request to the API, 
 or by adding as a query string parameter e.g. 
-'api_key=74a565ba-44ea-412b-b5e2-845bf9f18314'"""
+KEY REMOVED"""
 # https://docs.thecatapi.com/example-by-type
 # https://api.thecatapi.com/v1/images/search?format=src&size=full&mime_types=png,jpg&api_key=YOUR-API-KEY
 # this doesn't return a json object, it literally just returns a random image url
