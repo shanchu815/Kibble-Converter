@@ -13,16 +13,16 @@
 	<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-
-
 	<!-- <link href="/static/styles.css" rel="stylesheet"> -->
 
+	<p><span id='random-fact' class='fact'></span></p>
 </head>
 <body>
 	{% block body %}
 	{% endblock %}
-	
+	<img src="" id="random-image" class="random-image">
 	{% block js %}
+	<script src="/static/catdog.js"></script>
 	{% endblock %}
 </body>
 </html>

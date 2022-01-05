@@ -81,7 +81,7 @@ def show_result(food_id):
 or by adding as a query string parameter e.g. 
 'api_key=74a565ba-44ea-412b-b5e2-845bf9f18314'"""
 # https://docs.thecatapi.com/example-by-type
-# For Static Images - Request a new Image with https://api.thecatapi.com/images/search?mime_types=jpg,png
+# https://api.thecatapi.com/v1/images/search?format=src&size=full&mime_types=png,jpg&api_key=YOUR-API-KEY
 
 #Random Dog fact api
 """https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all to get all the facts at once.
