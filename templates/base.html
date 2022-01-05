@@ -3,7 +3,7 @@
 	<title>Pet Food MVP</title>
 	<title>{% block title %}{% endblock %}</title>
 
-	<!-- add some buttons here to return to home page, calculator page & sources page -->
+	<!-- add some navbar buttons here to return to home page, calculator page & sources page -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
@@ -16,13 +16,14 @@
 	<!-- <link href="/static/styles.css" rel="stylesheet"> -->
 
 	<p><span id='random-fact' class='fact'></span></p>
+
 </head>
 <body>
 	{% block body %}
 	{% endblock %}
 	<img src="" id="random-image" class="random-image">
 	{% block js %}
-	<script src="/static/catdog.js"></script>
+	<script defer src="/static/catdog.js"></script>
 	{% endblock %}
 </body>
 </html>

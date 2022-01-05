@@ -82,6 +82,7 @@ or by adding as a query string parameter e.g.
 'api_key=74a565ba-44ea-412b-b5e2-845bf9f18314'"""
 # https://docs.thecatapi.com/example-by-type
 # https://api.thecatapi.com/v1/images/search?format=src&size=full&mime_types=png,jpg&api_key=YOUR-API-KEY
+# this doesn't return a json object, it literally just returns a random image url
 
 #Random Dog fact api
 """https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all to get all the facts at once.

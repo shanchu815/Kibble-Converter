@@ -6,7 +6,7 @@ const factURLS = ['https://catfact.ninja/fact?max_length=140', 'https://dog-fact
 function randomImage(imageURLS){
     let imageUrlIndex = Math.floor(Math.random() * 1);
     let imageURL = imageURLS[imageUrlIndex];
-    const image = document.getElementById('random-image')
+    const image = document.getElementById('random-image');
 
     if (imageUrlIndex == 1){
         fetch(imageURL)
@@ -27,13 +27,13 @@ function randomImage(imageURLS){
 function randomFact(factURLS){
     let factUrlIndex = Math.floor(Math.random() * 1);
     let factURL = factURLS[factUrlIndex];
-    const fact = document.getElementById('random-fact')
+    const fact = document.getElementById('random-fact');
 
     if (factUrlIndex == 1){
         fetch(factURL)
         .then(response => response.json())
         .then(jsonData => {
-            let dogFactUrl = jsonData[0]["fact"];
+            let dogFactUrl = jsonData[0][0]["fact"];
             fact.innerHTML += `${dogFactUrl}`;
         });
     }
@@ -48,5 +48,5 @@ function randomFact(factURLS){
     };
 }
 
-randomFact()
-randomImage()
+randomFact(factURLS)
+randomImage(imageURLS)
