@@ -1,11 +1,13 @@
 from flask import Flask, request, render_template, redirect
 from model import connect_to_db
 import crud
+import os
 # "__name__" is a special Python variable for the name of the current module
 # Flask wants to know this to know what any imported things are relative to.
 app = Flask(__name__)
 # A secret key is needed to use Flask sessioning features
 app.secret_key = 'W33d1sl33t1845!'
+cat_key = os.environ['key']
 
 @app.route('/')
 def start_here():
@@ -74,6 +76,14 @@ def show_result(food_id):
         food = crud.get_food_by_id(food_id)
 
         return render_template("result.html", food = food)
+
+@app.route('/api/get_cat_image')
+def get_cat_image():
+    url = 'https://api.thecatapi.com/v1/images/search?format=src&size=full&mime_types=png,jpg&api_key='
+    cat_pic_url = url + cat_key
+
+    return cat_pic_url
+
 
 """Cat photo api"""
 #x-api-key = 74a565ba-44ea-412b-b5e2-845bf9f18314
