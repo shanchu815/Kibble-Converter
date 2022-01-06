@@ -27,12 +27,11 @@ function randomFact(){
     const fact = document.getElementById('random-fact');
 
     if (factUrlIndex < 0.5){
-        fetch('https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1')
-        .then(response => response.json())
-        .then(jsonData => {
-            let dogFactUrl = jsonData[0]["fact"];
-            fact.innerHTML += `${dogFactUrl}`;
-            console.log (jsonData[0])
+        fetch('/api/get_dog_fact')
+        .then(response => response.text())
+        .then(dogFact => {
+            console.log(dogFact);
+            fact.innerHTML += `${dogFact}`;
         });
     }
 
@@ -41,6 +40,7 @@ function randomFact(){
         .then(response => response.json())
         .then(jsonData => {
             let catFactUrl = jsonData["fact"];
+            console.log(catFactUrl);
             fact.innerHTML += `${catFactUrl}`;
         });
     };

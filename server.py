@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect
 from model import connect_to_db
 import crud
 import os
+import requests
 # "__name__" is a special Python variable for the name of the current module
 # Flask wants to know this to know what any imported things are relative to.
 app = Flask(__name__)
@@ -84,6 +85,13 @@ def get_cat_image():
 
     return cat_pic_url
 
+@app.route('/api/get_dog_fact')
+def get_dog_fact():
+    url = 'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1'
+    fact = requests.get(url).json()[0]['fact']
+    print(fact)
+    print("\n" * 20)
+    return fact
 
 """Cat photo api"""
 """Use it as the 'x-api-key' header when making any request to the API, 
