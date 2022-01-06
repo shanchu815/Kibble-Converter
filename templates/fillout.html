@@ -3,11 +3,11 @@
 {% block title %}Fill out the form to see what's in your pet's food{% endblock %}
 
 {% block body %}
+<div class = "fillout-form">
+    <h2>Fill out the form to see what's in your pet's food</h2>
 <form action="/save-list" id="ingredients-form" method="POST">
     <div class="fill1" id="fill1">
-        <p>
             <label for="product_name">Product Name: </label>
-        </p>
             <input type="text" name="product_name" required="required" placeholder="Ex: Purina Beef Benefuls" maxlength="80" >
     </div>
 
@@ -15,6 +15,7 @@
         <label for="ingredient_name">What's the first ingredient in the product name? (IE: 
             if it is called "Turkey & Fish cat food", then the first ingredient is turkey, which is a Poultry ingredient)
         </label>
+        <br>
         <select name="ingredient_name" id="ingredient_name" required="required">
             <option value="">--Please choose an option--</option>
             <optgroup label="Protein">
@@ -32,9 +33,9 @@
     </div>
 
     <div class="descriptor" id="descriptor">
-        <label for="descriptor">Does the product name use any of these descriptors? 
-            <br>Please note: Paté is a type of cat food, not a descriptor.
+        <label for="descriptor">Does the product name use any of these descriptors? Please note: Paté is a type of cat food, <b>not</b> a descriptor.
         </label>
+        <br>
         <select name="descriptor" id="descriptor" required="required">
             <option value="">--Please choose an option--</option>
             <option value="dinner">Dinner, entree, nuggets, etc.</option>
@@ -46,6 +47,8 @@
     
     <div class="others" id="others" name="others">
         <label for="others">Does the ingredient label contain any of these ingredients? Leave blank if none in that category apply.</label>
+        <br>
+        <label for="grains">Grains</label>
         <fieldset id="grains" name="grains">
             <input type="radio" value="soy" name="grains">
             <label for="soy">Soy</label><br/>
@@ -54,7 +57,7 @@
             <input type="radio" value="wheat" name="grains">
             <label for="wheat">Wheat</label><br/>
         </fieldset>
-        
+        <label for="additives">Additives</label>
         <fieldset id="additives" name="additives">
             <input type="radio" value="toco" name="additives">
             <label for="toco">Tocopherols (mixed or non-mixed)</label><br/>
@@ -63,7 +66,7 @@
             <input type="radio" value="msbc" name="additives">
             <label for="msbc">Menadione sodium bisulfate complex</label><br/>
         </fieldset>
-
+        <label for="proteins">Proteins</label>
         <fieldset id="proteins" name="proteins">
             <input type="radio" value="p1" name="proteins">
             <label for="p1">Meat, just meat</label><br/>
@@ -76,7 +79,7 @@
             <input type="radio" value="p5" name="proteins">
             <label for="p5">Meat digest</label><br/>
         </fieldset>
-
+        <label for="preservatives">Preservatives</label>
         <fieldset id="preservatives" name="preservatives">
             <input type="radio" value="bha" name="preservatives">
             <label for="bha">Butylated Hydroxyanisole (BHA)</label><br/>
@@ -86,17 +89,15 @@
             <label for="eth">Ethoxyquin</label><br/>
         </fieldset>
     </div>
-
-    <div>
+    <div class="submit-reset-btns">
         <input type="submit"> <input type="reset" onclick="return confirm_reset();" value="Clear form">
     </div>
     </form>
-
-    <a href="/" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
-    <br>
-    <a href="/calculator" class="btn btn-lg btn-primary">Click here to find the true protein content</a>
+</div>
 {% endblock %}
 
 {% block js %}
+<a class="btn btn-primary" href="/" role="button">Click here to go back to the homepage</a>
+<a class="btn btn-primary" href="/calculator" role="button">Click here to find the true protein content</a>
 <script src="/static/fillout.js"></script>
 {% endblock %}

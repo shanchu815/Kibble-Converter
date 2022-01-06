@@ -2,58 +2,52 @@
 
 {% block title %}Your pet food results:{% endblock %}
 
-
 {% block body %}
-
+<h4>Your pet food results:</h4>
 <div class="results-display" id="display">
 
-    <h2> Your product is {{ food.product_name }}:</h2>
+    <h5> Your product is {{ food.product_name }}:</h5>
 
-    <h3>This product uses the {{ food.title_ingredients[0].descriptor }} rule, which means:</h3>
+    <p><b>This product uses the <i>{{ food.title_ingredients[0].descriptor }} rule</i>, which means:</b></p>
     <p>
         {{ food.title_ingredients[0].details }}*
-    <br>                                                              
+    </p>
+    <p>                                                      
       *Please make sure to check the ingredient label on the back of the product to see if 
       {{ food.title_ingredients[0].title_ingredient_name }} is the first ingredient       
       listed there. (If it is not, then it is not the primary ingredient of the product **by weight**.)
     </p> 
 
-    <h3>This product contains the following ingredients:</h3>
+    <p><b>This product contains the following ingredients:</b></p>
 
     {% if food.grains is defined and food.grains|length > 0 %}
-        <h4>{{ food.grains[0].name }}:</h4>
+        <p><b>{{ food.grains[0].name }}:</b></p>
         <p>- {{ food.grains[0].effect }}</p>
         <p>- {{ food.grains[0].details }}</p>
     {% endif %}
 
     {% if food.proteins is defined and food.proteins|length > 0 %}
-        <h4>{{ food.proteins[0].name }}:</h4>
+        <p><b>{{ food.proteins[0].name }}:</b></p>
         <p>- {{ food.proteins[0].effect }}</p>
         <p>- {{ food.proteins[0].details }}</p>
     {% endif %}
 
     {% if food.additives is defined and food.additives|length > 0 %}
-        <h4>{{ food.additives[0].name }}:</h4>
+        <p><b>{{ food.additives[0].name }}:</b></p>
         <p>- {{ food.additives[0].effect }}</p>
         <p>- {{ food.additives[0].details }}</p>
     {% endif %}
 
     {% if food.preservatives is defined and food.preservatives|length > 0 %}
-        <h4>{{ food.preservatives[0].name }}:</h4>
+        <p><b>{{ food.preservatives[0].name }}:</b></p>
         <p>- {{ food.preservatives[0].effect }}</p>
         <p>- {{ food.preservatives[0].details }}</p>
     {% endif %}
-
 </div>
 
-<a href="/calculator" class="btn btn-lg btn-primary">Click here to find the true protein content</a>
-<br>
-<a href="/fillout" class="btn btn-lg btn-primary">Click here to convert another food</a>
-<br>
-<a href="/homepage" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
-
 {% endblock %}
-
 {% block js %}
-
+<a class="btn btn-primary" href="/fillout" role="button">Click here to convert another pet food</a>
+<a class="btn btn-primary" href="/calculator" role="button">Click here to find the true protein content</a>
+<a class="btn btn-primary" href="/homepage" role="button">Click here to return to the homepage</a>
 {% endblock %}

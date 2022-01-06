@@ -3,18 +3,18 @@
 {% block title %}What's in my pet's food?{% endblock %}
 
 {% block body %}
+<div class="about">
+<h2>What's in my pet's food?</h2>
 <p>A simple site that breaks down exactly what's in your pet's food or snack.
     <br>
     (In laymen's terms)
     <br>
     This currently only works for cat or dog food under United States FDA standards.
 </p>
-<a href="/disclaimer" class="btn btn-lg btn-primary">Click here to convert your pet food</a>
-<br>
-<a href="/calculator" class="btn btn-lg btn-primary">Click here to find the true protein content</a>
-
-<!-- TODO add ways to get to other routes -->
+</div>
 {% endblock %}
 
 {% block js %}
+<a class="btn btn-primary" href="/disclaimer" role="button">Click here to convert your pet food</a>
+<a class="btn btn-primary" href="/calculator" role="button">Click here to find the true protein content</a>
 {% endblock %}

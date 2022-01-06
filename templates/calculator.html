@@ -4,9 +4,13 @@
 
 {% block body %}
 <h3>True protein calculators</h3>
-
+<div class="example">
 <img src="/static/images/label.jpg" id="example-img" class="example-img">
+<br>
+<label for="example-img">Here's how to locate the percentages</label>
+</div>
 <!-- Flask issue: images can only be hosted in static folder, html pages can only be hosted in templates -->
+<div class="calculators">
 <h2>Pet food 1</h2>
     <form id=calc1>
     <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
@@ -14,6 +18,7 @@
     <br>
     <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
     <input type="number" id="moisture" name="moisture" step=".01" min="0.01" max="99.99"/>
+    <br>
     <input type="submit" value="Submit"/>
     <input type="reset" value="Reset"/>
     </form>
@@ -26,21 +31,23 @@
     <br>
     <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
     <input type="number" id="moisture" name="moisture" step=".01" min="0.01" max="99.99"/>
+    <br>
     <input type="submit" value="Submit"/>
     <input type="reset" value="Reset"/>
     </form>
 <p>True protein content: <span id="true-protein2"></span></p>
+</div>
 
+<div class="calculator-notes">
 <p>*When checking for true protein content, there may not be much of a difference if you are
     comparing two canned wet foods, but there may be a big difference if you're comparing kibble 
     to wet food. Please note that you should still check the ingredients, as this only determines 
-    the quantity, not necessarily quality of protein in your pet food.
+    the <b>quantity</b>, not necessarily <b>quality</b> of protein in your pet food.
 </p>
-<a href="/" class="btn btn-lg btn-primary">Click here to return to the homepage</a>
-<br>
-<a href="/disclaimer" class="btn btn-lg btn-primary">Click here to convert your pet food</a>
+</div>
 {% endblock %}
-
 {% block js %}
+<a class="btn btn-primary" href="/" role="button">Click here to return to the homepage</a>
+<a class="btn btn-primary" href="/disclaimer" role="button">Click here to convert your pet food</a>
 <script src="/static/calculator.js"></script>
 {% endblock %}
