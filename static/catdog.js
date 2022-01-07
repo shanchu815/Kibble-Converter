@@ -1,15 +1,21 @@
 'use strict';
 
-function randomImage(){
-    let imageUrlIndex = Math.random();
+function randomImageFact(){
+    let randomIndex = Math.random();
     const image = document.getElementById('random-image');
+    const fact = document.getElementById('random-fact');
 
-    if (imageUrlIndex < 0.5){
+    if (randomIndex < 0.5){
         fetch('https://dog.ceo/api/breeds/image/random')
         .then(response => response.json())
         .then(jsonData => {
             let dogPicUrl = jsonData["message"];
             image.src = `${dogPicUrl}`;
+        });
+        fetch('/api/get_dog_fact')
+        .then(response => response.text())
+        .then(dogFact => {
+            fact.innerHTML += `${dogFact}`;
         });
     }
 
@@ -19,32 +25,13 @@ function randomImage(){
             .then(urlText => {
             image.src = `${urlText}`;
         });
+            fetch('https://catfact.ninja/fact?max_length=140')
+            .then(response => response.json())
+            .then(jsonData => {
+                let catFactUrl = jsonData["fact"];
+                fact.innerHTML += `${catFactUrl}`;
+        });
     }
 }
 
-function randomFact(){
-    let factUrlIndex = Math.random();
-    const fact = document.getElementById('random-fact');
-
-    if (factUrlIndex < 0.5){
-        fetch('/api/get_dog_fact')
-        .then(response => response.text())
-        .then(dogFact => {
-            console.log(dogFact);
-            fact.innerHTML += `${dogFact}`;
-        });
-    }
-
-    else {
-        fetch('https://catfact.ninja/fact?max_length=140')
-        .then(response => response.json())
-        .then(jsonData => {
-            let catFactUrl = jsonData["fact"];
-            console.log(catFactUrl);
-            fact.innerHTML += `${catFactUrl}`;
-        });
-    };
-}
-
-randomFact();
-randomImage();
+randomImageFact();

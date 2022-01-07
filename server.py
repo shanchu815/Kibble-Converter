@@ -73,13 +73,14 @@ def show_result(food_id):
 
     if not crud.get_food_by_id(food_id):
         return "Invalid id"
-    else:        
+    else:
         food = crud.get_food_by_id(food_id)
-
         return render_template("result.html", food = food)
 
 @app.route('/api/get_cat_image')
 def get_cat_image():
+    """Fetches a random cat image from API"""
+
     url = 'https://api.thecatapi.com/v1/images/search?format=src&size=full&mime_types=png,jpg&api_key='
     cat_pic_url = url + cat_key
 
@@ -87,10 +88,10 @@ def get_cat_image():
 
 @app.route('/api/get_dog_fact')
 def get_dog_fact():
+    """Fetches a random dog fact from API"""
+
     url = 'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1'
     fact = requests.get(url).json()[0]['fact']
-    print(fact)
-    print("\n" * 20)
     return fact
 
 """Cat photo api"""
@@ -131,3 +132,6 @@ if __name__ == '__main__':
     # our web app if we change the code.
     connect_to_db(app)
     app.run(debug=True, host="0.0.0.0")
+
+
+# https://prod.liveshare.vsengsaas.visualstudio.com/join?67E64C7D384D8AC9E37D1B1793FCB5B237C4
