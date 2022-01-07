@@ -57,6 +57,7 @@
             <input type="radio" value="wheat" name="grains">
             <label for="wheat">Wheat</label><br/>
         </fieldset>
+        <button id="clear-grains">Deselect</button>
         <label for="additives">Additives</label>
         <fieldset id="additives" name="additives">
             <input type="radio" value="toco" name="additives">
@@ -66,6 +67,7 @@
             <input type="radio" value="msbc" name="additives">
             <label for="msbc">Menadione sodium bisulfate complex</label><br/>
         </fieldset>
+        <button id="clear-additives">Deselect</button>
         <label for="proteins">Proteins</label>
         <fieldset id="proteins" name="proteins">
             <input type="radio" value="p1" name="proteins">
@@ -79,6 +81,7 @@
             <input type="radio" value="p5" name="proteins">
             <label for="p5">Meat digest</label><br/>
         </fieldset>
+        <button id="clear-proteins">Deselect</button>
         <label for="preservatives">Preservatives</label>
         <fieldset id="preservatives" name="preservatives">
             <input type="radio" value="bha" name="preservatives">
@@ -88,6 +91,7 @@
             <input type="radio" value="eth" name="preservatives">
             <label for="eth">Ethoxyquin</label><br/>
         </fieldset>
+        <button id="clear-preservatives">Deselect</button>
     </div>
     <div class="submit-reset-btns">
         <input type="submit"> <input type="reset" onclick="return confirm_reset();" value="Clear form">
@@ -99,5 +103,5 @@
 {% block js %}
 <a class="btn btn-primary" href="/" role="button">Click here to go back to the homepage</a>
 <a class="btn btn-primary" href="/calculator" role="button">Click here to find the true protein content</a>
-<script src="/static/fillout.js"></script>
+<!-- <script src="/static/fillout.js"></script> -->
 {% endblock %}
