@@ -133,5 +133,3 @@ if __name__ == '__main__':
     connect_to_db(app)
     app.run(debug=True, host="0.0.0.0")
 
-
-# https://prod.liveshare.vsengsaas.visualstudio.com/join?67E64C7D384D8AC9E37D1B1793FCB5B237C4
