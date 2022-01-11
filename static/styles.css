@@ -1,5 +1,5 @@
 .fact-div p {
-    background-color: #f8a7cd;
+    background-color: #f8b05dd0;
     padding: 10px 25px 10px 25px;
     border-radius: 20px;
 }
@@ -16,7 +16,7 @@
     padding: 30px 30px;
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(175, 255, 186, 0.808);
     border-radius: 20px;
     max-width: 480px;
     max-height: 480px;
@@ -52,21 +52,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar {
     font-family: 'Quando', serif;
-    color: #e78e28;
+    color: #20533b;
 }
 
 .buttons {
     display: flex;
-    justify-content: center;
-    max-width: 90%;
+    justify-content: space-evenly;
 }
 
 .btn {
     background-color: #4bc58c;
     color: #FFFF;
-    justify-content: center;
-    margin-right: 20px;
-    margin-left: 20px;
 }
 
 .footer{
@@ -76,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
 }
 .about {
-    background-color: rgb(216, 216, 216);
+    background-color: rgba(175, 255, 186, 0.808);
     padding: 60px 45px;
     display: flex;
     justify-content: left;
@@ -92,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .disclaimer {
-    background-color: rgb(216, 216, 216);
+    background-color: rgba(175, 255, 186, 0.808);
     padding: 60px 45px;
     display: flex;
     justify-content: left;
@@ -112,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fillout {
-    background-color: rgb(216, 216, 216);
+    background-color: rgba(175, 255, 186, 0.808);
     padding: 60px 45px;
     display: flex;
     justify-content: left;
@@ -128,22 +124,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-buttons {
-    display: table;
-    position: center;
-    width: 100%;
-}
-
-.form-buttons:before {
-    content: '';
-    display: table-cell;
-    min-width: 100px;
-    width: 25%;
-    max-width: 300px;
-}
-
-.form-buttons> .content {
-    display: table-cell;
-    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .results-display {

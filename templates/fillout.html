@@ -95,10 +95,8 @@
         </fieldset>
         <!-- <button id="clear-preservatives">Deselect</button> -->
         <div class="form-buttons">
-            <div class="content">
-            <input type="submit">
-            <input type="reset" onclick="return confirm_reset();" value="Clear form">
-            </div>
+                <input type="submit">
+                <input type="reset" onclick="return confirm_reset();" value="Clear form">
         </div>
     </div>
     </form>
@@ -107,7 +105,7 @@
 {% endblock %}
 
 {% block js %}
-<div class="buttons"></div>
+<div class="buttons">
 <a class="btn" href="/" role="button">Click here to go back to the homepage</a>
 <a class="btn" href="/calculator" role="button">Click here to find the true protein content</a>
 </div>
