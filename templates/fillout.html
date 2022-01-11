@@ -3,11 +3,13 @@
 {% block title %}Fill out the form to see what's in your pet's food{% endblock %}
 
 {% block body %}
+<br>
+<div class="fillout">
 <div class = "fillout-form">
     <h2>Fill out the form to see what's in your pet's food</h2>
 <form action="/save-list" id="ingredients-form" method="POST">
     <div class="fill1" id="fill1">
-            <label for="product_name">Product Name: </label>
+            <label for="product_name">Product Name:</label>
             <input type="text" name="product_name" required="required" placeholder="Ex: Purina Beef Benefuls" maxlength="80" >
     </div>
 
@@ -48,7 +50,7 @@
     <div class="others" id="others" name="others">
         <label for="others">Does the ingredient label contain any of these ingredients? Leave blank if none in that category apply.</label>
         <br>
-        <label for="grains">Grains</label>
+        <label for="grains"><b>Grains</b></label>
         <fieldset id="grains" name="grains">
             <input type="radio" value="soy" name="grains">
             <label for="soy">Soy</label><br/>
@@ -57,8 +59,8 @@
             <input type="radio" value="wheat" name="grains">
             <label for="wheat">Wheat</label><br/>
         </fieldset>
-        <button id="clear-grains">Deselect</button>
-        <label for="additives">Additives</label>
+        <!-- <button id="clear-grains">Deselect</button> -->
+        <label for="additives"><b>Additives</b></label>
         <fieldset id="additives" name="additives">
             <input type="radio" value="toco" name="additives">
             <label for="toco">Tocopherols (mixed or non-mixed)</label><br/>
@@ -67,8 +69,8 @@
             <input type="radio" value="msbc" name="additives">
             <label for="msbc">Menadione sodium bisulfate complex</label><br/>
         </fieldset>
-        <button id="clear-additives">Deselect</button>
-        <label for="proteins">Proteins</label>
+        <!-- <button id="clear-additives">Deselect</button> -->
+        <label for="proteins"><b>Proteins</b></label>
         <fieldset id="proteins" name="proteins">
             <input type="radio" value="p1" name="proteins">
             <label for="p1">Meat, just meat</label><br/>
@@ -81,8 +83,8 @@
             <input type="radio" value="p5" name="proteins">
             <label for="p5">Meat digest</label><br/>
         </fieldset>
-        <button id="clear-proteins">Deselect</button>
-        <label for="preservatives">Preservatives</label>
+        <!-- <button id="clear-proteins">Deselect</button> -->
+        <label for="preservatives"><b>Preservatives</b></label>
         <fieldset id="preservatives" name="preservatives">
             <input type="radio" value="bha" name="preservatives">
             <label for="bha">Butylated Hydroxyanisole (BHA)</label><br/>
@@ -91,17 +93,22 @@
             <input type="radio" value="eth" name="preservatives">
             <label for="eth">Ethoxyquin</label><br/>
         </fieldset>
-        <button id="clear-preservatives">Deselect</button>
-    </div>
-    <div class="submit-reset-btns">
-        <input type="submit"> <input type="reset" onclick="return confirm_reset();" value="Clear form">
+        <!-- <button id="clear-preservatives">Deselect</button> -->
+        <div class="form-buttons">
+            <div class="content">
+            <input type="submit">
+            <input type="reset" onclick="return confirm_reset();" value="Clear form">
+            </div>
+        </div>
     </div>
     </form>
+</div>
 </div>
 {% endblock %}
 
 {% block js %}
-<a class="btn btn-primary" href="/" role="button">Click here to go back to the homepage</a>
-<a class="btn btn-primary" href="/calculator" role="button">Click here to find the true protein content</a>
-<!-- <script src="/static/fillout.js"></script> -->
+<div class="buttons"></div>
+<a class="btn" href="/" role="button">Click here to go back to the homepage</a>
+<a class="btn" href="/calculator" role="button">Click here to find the true protein content</a>
+</div>
 {% endblock %}

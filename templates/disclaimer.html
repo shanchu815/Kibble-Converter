@@ -3,21 +3,26 @@
 {% block title %}Disclaimer{% endblock %}
 
 {% block body %}
+<br>
 <div class="disclaimer">
-<h3>Disclaimer</h3>
-<p>This site is not a confirmed guarantee as to whether or not 
-    a particular brand or food is healthier than another. This site is
-    not sponsored by any brands and merely breaks down the estimated contents 
-    of a food as by the 
-    <a href="https://www.fda.gov/animal-veterinary/animal-health-literacy/pet-food-labels-general">
-        FDA standards for pet food naming and ingredient labels</a>.
-    This site is NOT a substitute for a licensed pet nutritionist or veterinary diet 
-    recommendation. Please consult your vet and make sure to double check your research, 
-    thank you.
-</p>
+    <div class="disclaimer-inner">
+        <h3><b>Disclaimer</b></h3>
+        <p>This site is not a confirmed guarantee as to whether or not 
+            a particular brand or food is healthier than another. This site is
+            not sponsored by any brands and merely breaks down the estimated contents 
+            of a food as by the 
+            <a href="https://www.fda.gov/animal-veterinary/animal-health-literacy/pet-food-labels-general">
+                FDA standards for pet food naming and ingredient labels</a>.
+            This site is NOT a substitute for a licensed pet nutritionist or veterinary diet 
+            recommendation. Please consult your vet and make sure to double check your research, 
+            thank you.
+        </p>
+    </div>
 </div>
 {% endblock %}
 
 {% block js %}
-<a class="btn btn-primary" href="/fillout" role="button">Continue</a>
+<div class="buttons">
+<a class="btn" href="/fillout" role="button">Continue</a>
+</div>
 {% endblock %}

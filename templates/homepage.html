@@ -3,18 +3,28 @@
 {% block title %}What's in my pet's food?{% endblock %}
 
 {% block body %}
+<br>
 <div class="about">
-<h2>What's in my pet's food?</h2>
-<p>A simple site that breaks down exactly what's in your pet's food or snack.
-    <br>
-    (In laymen's terms)
-    <br>
-    This currently only works for cat or dog food under United States FDA standards.
-</p>
+    <div class="about-inner">
+        <h1>🐾What's in my pet's food?🐾</h1>
+        <br>
+        <p>Have you ever looked at a pet food label and been confused by the ingredient names and terms like "crude protein content"?</p>
+        <p>Tired of keeping a bunch of tabs open or bookmarked on your phone so you can google all those words while shopping?</p>
+        <p>This is a simple and free resource and conversion site for anyone to use.</p>
+        <br>
+        <h3>🐾How do I use this site?🐾</h3>
+        <br>
+        <p>Simply fill out the form asking for the name of your pet food product and any ingredients that you're curious about.
+            You'll get back a shareable and bookmarkable result page letting you know exactly what's in your pet food.</p>
+        <p>Or you can check out our protein calculators to quickly compare the actual protein contents (not including water) of any 2 foods.</p>
+        <p><i>🐕This currently only works for cat and dog food products sold in the US as our database only uses the FDA's standards regarding pet food naming and content for now.🐈</i></p>
+    </div>
 </div>
 {% endblock %}
 
 {% block js %}
-<a class="btn btn-primary" href="/disclaimer" role="button">Click here to convert your pet food</a>
-<a class="btn btn-primary" href="/calculator" role="button">Click here to find the true protein content</a>
+<div class="buttons">
+<a class="btn" href="/disclaimer" role="button">Click here to convert your pet food</a>
+<a class="btn" href="/calculator" role="button">Click here to find the true protein content</a>
+</div>
 {% endblock %}
