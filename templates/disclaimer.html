@@ -3,30 +3,67 @@
 {% block title %}Disclaimer{% endblock %}
 
 {% block body %}
-<section class="disclaimer-top">
-<div class="disclaimer">
-    <div class="disclaimer-inner">
-        <h3><b>Disclaimer</b></h3>
-        <p>This site is not a confirmed guarantee as to whether or not 
-            a particular brand or food is healthier than another. This site is
-            not sponsored by any brands and merely breaks down the estimated contents 
-            of a food as by the 
-            <a href="https://www.fda.gov/animal-veterinary/animal-health-literacy/pet-food-labels-general">
-                FDA standards for pet food naming and ingredient labels</a>.
-            This site is NOT a substitute for a licensed pet nutritionist or veterinary diet 
-            recommendation. Please consult your vet and make sure to double check your research, 
-            thank you.
-        </p>
+<section class="disclaimer-section">
+    <div class="disclaimer">
+        <div class="disclaimer-inner">
+            <h3><b>(General) Disclaimer</b></h3>
+            <p>This site is not a confirmed guarantee as to whether or not 
+                a particular brand or food is healthier than another. This site is
+                not sponsored by any brands and merely breaks down the estimated contents 
+                of a food as by the 
+                <a href="https://www.fda.gov/animal-veterinary/animal-health-literacy/pet-food-labels-general">
+                    FDA standards for pet food naming and ingredient labels</a>.
+                This site is NOT a substitute for a licensed pet nutritionist or veterinary diet 
+                recommendation. Please consult your vet and make sure to double check your research.
+            </p>
+        </div>
     </div>
-</div>
-</section>
-<section class="disclaimer-center">
     <div class="video-container">
         <div class="color-overlay"></div>
-        <video autoplay loop muted>
-            <source src="/static/images/catvid.mp4" type="video/mp4">
-        </video>
+        <div class="video">
+            <video width="100%" height="100%" autoplay loop muted>
+                <source src="/static/images/catvid.mp4" type="video/mp4">
+            </video>
+        </div>
         <!-- from coverr dot com -->
+    </div>
+    <div class="disclaimer-bottom">
+        <div class="disclaimer-lower">
+            <p><i>Please note that this converter only works for dog and cat food. If you are 
+                feeding your pet a raw food diet or have a non-canine/feline pet, 
+                this resource site probably won't be of that much help for you.</i></p>
+        </div>
+    </div>
+    <div class="legal">
+        <div class= legal-inner>
+            <h3>The Full Legal Disclaimer</h3>
+            <p>The information contained on the site is for general information purposes only.</p>
+            <p>We assume no responsibility for errors or omissions in the contents of the site.</p>
+            <p>In no event shall this site be liable for any special, direct, indirect, consequential, 
+                or incidental damages or any damages whatsoever, whether in an action of contract, 
+                negligence or other tort, arising out of or in connection with the use of the site 
+                or the contents of the site. We reserve the right to make additions, deletions, or 
+                modifications to the contents on the site at any time without prior notice..</p>
+            <p>We do not warrant that the site is free of viruses or other harmful components.</p>
+            <h4>External Links Disclaimer</h4>
+            <p>The site may contain links to external websites that are not provided or maintained 
+                by or in any way affiliated with this site.</p>
+            <p>Please note that this site does not guarantee the accuracy, relevance, timeliness, or 
+                completeness of any information on these external websites.</p>
+            <h4>Errors and Omissions Disclaimer</h4>
+            <p>The information given by the site is for general guidance on matters of interest 
+                only. Even if this site takes every precaution to insure that the content of the site 
+                is both current and accurate, errors can occur. Plus, given the changing nature of laws, 
+                rules and regulations, there may be delays, omissions or inaccuracies in the information 
+                contained on the site.</p>
+            <p>We are not responsible for any errors or omissions, or for the results obtained from the 
+                use of this information.</p>
+            <h4>Contact Us</h4>
+            <p>If you have any questions, you can leave a comment on our github page:</p>
+            <ul>
+            <li>@ https://github.com/shanchu815/mvp</li>
+            </ul>
+        </div>
     </div>
 </section>
 {% endblock %}
