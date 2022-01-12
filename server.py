@@ -22,6 +22,12 @@ def show_disclaimer():
 
     return render_template("disclaimer.html")
 
+@app.route("/disclaimer-eu")
+def show_eu_disclaimer():
+    """Shows the EU disclaimer."""
+
+    return render_template("disclaimer-eu.html")
+
 @app.route("/calculator")
 def calculate():
     """Shows the protein calculator page."""
@@ -33,6 +39,12 @@ def fill_out():
     """Shows the fillout form"""
 
     return render_template("fillout.html")
+
+@app.route("/fillout-eu")
+def fill_out_eu():
+    """Shows the EU fillout form"""
+
+    return render_template("fillout-eu.html")
 
 @app.route("/save-list", methods = ['POST'])
 def save_choices():
@@ -64,6 +76,39 @@ def save_choices():
 
     else:
         return redirect('/fillout')
+
+    return redirect('/results/' + new_food.food_id)
+
+@app.route("/save-list-eu", methods = ['POST'])
+def save_choices_eu():
+    """Saves the chosen EU form options as a new food object"""
+
+    product_name = request.form.get("product_name")
+    ingredient_name = request.form.get("ingredient_name")
+    descriptor = request.form.get("descriptor")
+    grain = request.form.get("grains")
+    additive = request.form.get("additives")
+    protein = request.form.get("proteins") 
+    preservative = request.form.get("preservatives")
+
+    if (product_name is not None and
+        ingredient_name is not None and 
+        descriptor is not None):
+         
+        new_food = crud.create_food(product_name)
+        crud.add_title_ingredients_to_food(new_food, crud.get_details_by_ingredient_name_and_descriptor(ingredient_name, descriptor))
+
+        if grain is not None:
+            crud.add_grain_to_food(new_food, crud.get_grain_by_id(grain))
+        if additive is not None:
+            crud.add_additive_to_food(new_food, crud.get_additive_by_id(additive))
+        if protein is not None:
+            crud.add_protein_to_food(new_food, crud.get_protein_by_id(protein))
+        if preservative is not None:
+            crud.add_preservative_to_food(new_food, crud.get_preservative_by_id(preservative))
+
+    else:
+        return redirect('/fillout-eu')
 
     return redirect('/results/' + new_food.food_id)
 

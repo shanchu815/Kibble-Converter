@@ -30,7 +30,7 @@
             <p>Simply fill out the form asking for the name of your pet food product and any ingredients that you're curious about.
                 You'll get back a shareable and bookmarkable result page letting you know exactly what's in your pet food.</p>
             <p>Or you can check out our protein calculators to quickly compare the actual protein contents (not including water) of any 2 foods.</p>
-            <p><i>🐕This currently only works for cat and dog food products sold in the US as our database only uses the FDA's standards regarding pet food naming and content for now.🐈</i></p>
+            <p><i>🐕This currently only works for cat and dog food products sold in the US or EU as our database only uses the FDA and FEDIAF's standards regarding pet food naming and content for now.🐈</i></p>
         </div>
     </div>
 </div>
@@ -38,7 +38,8 @@
 
 {% block js %}
 <div class="buttons">
-<a class="btn" href="/disclaimer" role="button">Convert! 🖊️</a>
+<a class="btn" href="/disclaimer" role="button">Convert! (US)🖊️</a>
 <a class="btn" href="/calculator" role="button">Calculate! 🖩</a>
+<a class="btn" href="/disclaimer-eu" role="button">Convert! (EU) <b>€</b></a>
 </div>
 {% endblock %}

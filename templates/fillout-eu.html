@@ -8,7 +8,7 @@
     <div class = "fillout-form">
         <h2>🖊️Fill out the form to see what's in your pet's food🖊️</h2>
         <br>
-        <form action="/save-list" id="ingredients-form" method="POST">
+        <form action="/save-list-eu" id="ingredients-form" method="POST">
             <div class="fill1" id="fill1">
                     <label for="product_name"><b>Product Name: </b></label>
                     <input type="text" class="product-name-input" name="product_name" required="required" placeholder="Ex: Purina Beef Benefuls" maxlength="80" >
@@ -41,10 +41,12 @@
                 <br>
                 <select name="descriptor" id="descriptor" required="required">
                     <option value="">--Please choose an option--</option>
-                    <option value="dinner">Dinner, entree, nuggets, etc.</option>
-                    <option value="flavor">Flavor, as in "Chicken-flavored"</option>
-                    <option value="with">With, such as "made with real beef"</option>
-                    <option value="None">N/A</option>
+                    <option value="X dinner">Dinner, entree, nuggets, etc.</option>
+                    <option value="flavored with">Flavored with, as in "flavored with chicken"</option>
+                    <option value="with X">With, such as "made with real beef"</option>
+                    <option value="rich in X">rich in, such as "rich in fish"</option>
+                    <option value="complete">Complete, as in "a complete pet food for"</option>
+                    <option value="complementary">Complementary, as in "a complementary pet food for"</option>
                 </select>
             </div>
             <br>
@@ -60,7 +62,6 @@
                     <input type="radio" value="wheat" name="grains">
                     <label for="wheat">Wheat</label><br/>
                 </fieldset>
-                <!-- <button id="clear-grains">Deselect</button> -->
                 <label for="additives" class="ing-label"><b>Additives 🧪</b></label>
                 <fieldset id="additives" name="additives">
                     <input type="radio" value="toco" name="additives">
@@ -70,7 +71,6 @@
                     <input type="radio" value="msbc" name="additives">
                     <label for="msbc">Menadione sodium bisulfate complex</label><br/>
                 </fieldset>
-                <!-- <button id="clear-additives">Deselect</button> -->
                 <label for="proteins" class="ing-label"><b>Proteins 🍖</b></label>
                 <fieldset id="proteins" name="proteins">
                     <input type="radio" value="p1" name="proteins">
@@ -83,8 +83,9 @@
                     <label for="p4">Meat by-product</label><br/>
                     <input type="radio" value="p5" name="proteins">
                     <label for="p5">Meat digest</label><br/>
+                    <input type="radio" value="p6" name="proteins">
+                    <label for="p6">Meat and Animal Derivatives (%)</label><br/>
                 </fieldset>
-                <!-- <button id="clear-proteins">Deselect</button> -->
                 <label for="preservatives" class="ing-label"><b>Preservatives ⚗️</b></label>
                 <fieldset id="preservatives" name="preservatives">
                     <input type="radio" value="bha" name="preservatives">
@@ -94,7 +95,6 @@
                     <input type="radio" value="eth" name="preservatives">
                     <label for="eth">Ethoxyquin</label><br/>
                 </fieldset>
-                <!-- <button id="clear-preservatives">Deselect</button> -->
                 <br>
                 <div class="form-buttons">
                         <input type="submit" value="Submit" class="submit-button">
@@ -109,6 +109,7 @@
 <div class="buttons">
 <a class="btn" href="/" role="button">Homepage 🐾</a>
 <a class="btn" href="/calculator" role="button">Calculators 🖩</a>
-<a class="btn" href="/disclaimer-eu" role="button">Convert! (EU) 🖊️</a>
+<a class="btn" href="/disclaimer" role="button">Convert! (US) 🖊️</a>
 </div>
+<!-- <script src="/static/fillout.js"></script> -->
 {% endblock %}

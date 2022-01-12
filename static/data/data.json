@@ -75,7 +75,12 @@
           {"protein_id": "p5",
           "name": "Meat digest",
           "effect": "Materials resulting from chemical or enzymatic degradation of clean animal tissue",
-          "details": "Excludes hair, horns, teeth, hooves, & feathers"}],
+          "details": "Excludes hair, horns, teeth, hooves, & feathers"},
+
+          {"protein_id": "p6",
+            "name": "Meat and Animal Derivatives",
+            "effect": "Animal by-products of the human food industry, such as organs, that were slaughtered under veterinary supervision",
+            "details": "Excludes dairy. If a % is given, that means that the product is guaranteed to have at least X% of that animal."}],
 
   "ingredients":[
 
@@ -94,7 +99,31 @@
           {"name": "Poultry", 
             "descriptor": "with", 
             "details": "This is at least 3% poultry."}, 
-  
+    
+          {"name": "Poultry", 
+            "descriptor": "X dinner", 
+            "details": "This is at least 26% poultry."}, 
+    
+          {"name": "Poultry", 
+            "descriptor": "flavored with", 
+            "details": "This is less than 4% poultry."}, 
+    
+          {"name": "Poultry", 
+            "descriptor": "with X", 
+            "details": "This is at least 4% poultry."},   
+     
+          {"name": "Poultry", 
+            "descriptor": "rich in X", 
+            "details": "This is at least 14% poultry."},   
+           
+          {"name": "Poultry", 
+            "descriptor": "complete", 
+            "details": "This poultry-based product contains all the nutrients for a pet's daily diet."}, 
+            
+          {"name": "Poultry", 
+            "descriptor": "complementary", 
+            "details": "This poultry-based product needs other foods in order to meet a pet's daily nutritional requirements."}, 
+
           {"name": "Beef/Deer", 
             "descriptor": "None", 
             "details": "This is 95% beef/deer minimum."}, 
@@ -110,6 +139,30 @@
           {"name": "Beef/Deer", 
             "descriptor": "with", 
             "details": "This is at least 3% beef/deer."}, 
+
+            {"name": "Beef/Deer", 
+              "descriptor": "X dinner", 
+              "details": "This is at least 26% beef/deer."}, 
+      
+            {"name": "Beef/Deer", 
+              "descriptor": "flavored with", 
+              "details": "This is less than 4% beef/deer."}, 
+      
+            {"name": "Beef/Deer", 
+              "descriptor": "with X", 
+              "details": "This is at least 4% beef/deer."},   
+       
+            {"name": "Beef/Deer", 
+              "descriptor": "rich in X", 
+              "details": "This is at least 14% beef/deer."},   
+             
+            {"name": "Beef/Deer", 
+              "descriptor": "complete", 
+              "details": "This beef/deer-based product contains all the nutrients for a pet's daily diet."}, 
+              
+            {"name": "Beef/Deer", 
+              "descriptor": "complementary", 
+              "details": "This beef/deer-based product needs other foods in order to meet a pet's daily nutritional requirements."}, 
     
           {"name": "Fish/Seafood", 
             "descriptor": "None", 
@@ -126,6 +179,30 @@
           {"name": "Fish/Seafood", 
             "descriptor": "with", 
             "details": "This is at least 3% fish/seafood."}, 
+
+            {"name": "Fish/Seafood", 
+              "descriptor": "X dinner", 
+              "details": "This is at least 26% fish/seafood."}, 
+      
+            {"name": "Fish/Seafood", 
+              "descriptor": "flavored with", 
+              "details": "This is less than 4% fish/seafood."}, 
+      
+            {"name": "Fish/Seafood", 
+              "descriptor": "with X", 
+              "details": "This is at least 4% fish/seafood."},   
+       
+            {"name": "Fish/Seafood", 
+              "descriptor": "rich in X", 
+              "details": "This is at least 14% fish/seafood."},   
+             
+            {"name": "Fish/Seafood", 
+              "descriptor": "complete", 
+              "details": "This fish/seafood-based product contains all the nutrients for a pet's daily diet."}, 
+              
+            {"name": "Fish/Seafood", 
+              "descriptor": "complementary", 
+              "details": "This fish/seafood-based product needs other foods in order to meet a pet's daily nutritional requirements."}, 
     
           {"name": "Dairy", 
             "descriptor": "None", 
@@ -142,6 +219,30 @@
           {"name": "Dairy", 
             "descriptor": "with", 
             "details": "This is at least 3% dairy."}, 
+
+            {"name": "Dairy", 
+              "descriptor": "X dinner", 
+              "details": "This is at least 26% dairy."}, 
+      
+            {"name": "Dairy", 
+              "descriptor": "flavored with", 
+              "details": "This is less than 4% dairy."}, 
+      
+            {"name": "Dairy", 
+              "descriptor": "with X", 
+              "details": "This is at least 4% dairy."},   
+       
+            {"name": "Dairy", 
+              "descriptor": "rich in X", 
+              "details": "This is at least 14% dairy."},   
+             
+            {"name": "Dairy", 
+              "descriptor": "complete", 
+              "details": "This dairy-based product contains all the nutrients for a pet's daily diet."}, 
+              
+            {"name": "Dairy", 
+              "descriptor": "complementary", 
+              "details": "This dairy-based product needs other foods in order to meet a pet's daily nutritional requirements."}, 
       
           {"name": "Pork", 
             "descriptor": "None", 
@@ -158,6 +259,30 @@
           {"name": "Pork", 
             "descriptor": "with", 
             "details": "This is at least 3% pork."}, 
+
+            {"name": "Pork", 
+              "descriptor": "X dinner", 
+              "details": "This is at least 26% pork."}, 
+      
+            {"name": "Pork", 
+              "descriptor": "flavored with", 
+              "details": "This is less than 4% pork."}, 
+      
+            {"name": "Pork", 
+              "descriptor": "with X", 
+              "details": "This is at least 4% pork."},   
+       
+            {"name": "Pork", 
+              "descriptor": "rich in X", 
+              "details": "This is at least 14% pork."},   
+             
+            {"name": "Pork", 
+              "descriptor": "complete", 
+              "details": "This pork-based product contains all the nutrients for a pet's daily diet."}, 
+              
+            {"name": "Pork", 
+              "descriptor": "complementary", 
+              "details": "This pork-based product needs other foods in order to meet a pet's daily nutritional requirements."}, 
       
           {"name": "Veggie/Grain/Fruit", 
             "descriptor": "None", 
@@ -173,6 +298,30 @@
 
           {"name": "Veggie/Grain/Fruit", 
             "descriptor": "with", 
-            "details": "This is at least 3% vegetable/grain/fruit."}]
+            "details": "This is at least 3% vegetable/grain/fruit."},
+          
+            {"name": "Veggie/Grain/Fruit", 
+              "descriptor": "X dinner", 
+              "details": "This is at least 26% vegetable/grain/fruit."}, 
+      
+            {"name": "Veggie/Grain/Fruit", 
+              "descriptor": "flavored with", 
+              "details": "This is less than 4% vegetable/grain/fruit."}, 
+      
+            {"name": "Veggie/Grain/Fruit", 
+              "descriptor": "with X", 
+              "details": "This is at least 4% vegetable/grain/fruit."},   
+       
+            {"name": "Veggie/Grain/Fruit", 
+              "descriptor": "rich in X", 
+              "details": "This is at least 14% vegetable/grain/fruit."},   
+             
+            {"name": "Veggie/Grain/Fruit", 
+              "descriptor": "complete", 
+              "details": "This vegetable/grain/fruit-based product contains all the nutrients for a pet's daily diet."}, 
+              
+            {"name": "Veggie/Grain/Fruit", 
+              "descriptor": "complementary", 
+              "details": "This vegetable/grain/fruit-based product needs other foods in order to meet a pet's daily nutritional requirements."}]
   }
 ]
