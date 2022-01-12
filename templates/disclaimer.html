@@ -3,7 +3,7 @@
 {% block title %}Disclaimer{% endblock %}
 
 {% block body %}
-<br>
+<section class="disclaimer-top">
 <div class="disclaimer">
     <div class="disclaimer-inner">
         <h3><b>Disclaimer</b></h3>
@@ -19,6 +19,16 @@
         </p>
     </div>
 </div>
+</section>
+<section class="disclaimer-center">
+    <div class="video-container">
+        <div class="color-overlay"></div>
+        <video autoplay loop muted>
+            <source src="/static/images/catvid.mp4" type="video/mp4">
+        </video>
+        <!-- from coverr dot com -->
+    </div>
+</section>
 {% endblock %}
 
 {% block js %}

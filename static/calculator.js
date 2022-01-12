@@ -30,7 +30,3 @@ function calculator(evt){
 
 firstForm.addEventListener('submit', calculator);
 secondForm.addEventListener('submit', calculator);
-
-function confirm_reset() {
-    return confirm("Are you sure you want to reset all fields?");
-}

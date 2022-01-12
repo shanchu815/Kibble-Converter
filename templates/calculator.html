@@ -3,53 +3,86 @@
 {% block title %}Find out the true protein content in your pet food!*{% endblock %}
 
 {% block body %}
-<h3>True protein calculators</h3>
-<div class="example">
-<img src="/static/images/label.jpg" id="example-img" class="example-img">
 <br>
-<label for="example-img">Here's how to locate the percentages</label>
-</div>
-<!-- Flask issue: images can only be hosted in static folder, html pages can only be hosted in templates -->
-<div class="calculators">
-<h2>Pet food 1</h2>
-    <form id=calc1>
-    <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
-    <input type="number" id="crude-protein" name="crude-protein" step=".01" min="0.01" max="99.99"/>
-    <br>
-    <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
-    <input type="number" id="moisture" name="moisture" step=".01" min="0.01" max="99.99"/>
-    <br>
-    <input type="submit" value="Submit"/>
-    <input type="reset" value="Reset"/>
-    </form>
-<p>True protein content: <span id="true-protein"></span></p>
+<div class="calculator-page">
+    <div class="calculators">
+        <h2>🖩True protein calculators🖩</h2>
+        <div class="example">
+            <div class="example-img">
+                <img src="/static/images/label.jpg" id="example-img">
+            </div>
+        </div>
+            <div class="example-label">
+                <label for="example-img">Here's how to locate the percentages</label>
+            </div>
 
-<h2>Pet food 2</h2>
-    <form id=calc2>
-    <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
-    <input type="number" id="crude-protein" name="crude-protein" step=".01" min="0.01" max="99.99"/>
-    <br>
-    <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
-    <input type="number" id="moisture" name="moisture" step=".01" min="0.01" max="99.99"/>
-    <br>
-    <input type="submit" value="Submit"/>
-    <input type="reset" value="Reset"/>
-    </form>
-<p>True protein content: <span id="true-protein2"></span></p>
-</div>
-
-<div class="calculator-notes">
-<p>*When checking for true protein content, there may not be much of a difference if you are
-    comparing two canned wet foods, but there may be a big difference if you're comparing kibble 
-    to wet food. Please note that you should still check the ingredients, as this only determines 
-    the <b>quantity</b>, not necessarily <b>quality</b> of protein in your pet food.
-</p>
+        <div class="calculator-notes">
+            <p>*When checking for true protein content, there may not be much of a difference if you are
+                comparing two canned wet foods, but there may be a big difference if you're comparing kibble 
+                to wet food. Please note that you should still check the ingredients, as this only determines 
+                the <b>quantity</b>, not necessarily <b>quality</b> of protein in your pet food.
+            </p>
+        </div>
+    <!-- Flask issue: images can only be hosted in static folder, html pages can only be hosted in templates -->
+        <br>
+        <div class="calc-1">
+            <h3>Pet food 1 🖩</h3>
+                <form id=calc1>
+                    <div class="calc-1-top">
+                        <div class="calc-1-top-label">
+                            <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
+                        </div>
+                        <div class="calc-1-top-input">
+                            <input type="number" id="crude-protein" class="calc-input" name="crude-protein" step=".01" min="0.01" max="99.99"/>
+                        </div>
+                    </div>
+                    <div class="calc-1-bottom">
+                        <div class="calc-1-bottom-label">
+                            <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
+                        </div>
+                        <div class="calc-1-bottom-input">
+                            <input type="number" id="moisture" class="calc-input-2" name="moisture" step=".01" min="0.01" max="99.99"/>
+                        </div>
+                    </div>
+                <br>
+                <input type="submit" value="Submit" class="submit-button">
+                <input type="reset" value="Reset" class="reset-button-calc">
+                </form>
+        </div>
+        <p><b>True protein content: </b><span id="true-protein" class="true-protein"></span></p>
+        <br>
+        <div class="calc-2">
+            <h3>Pet food 2 🖩</h3>
+                <form id=calc2>
+                    <div class="calc-2-top">
+                        <div class="calc-2-top-label">
+                            <label for="crude-protein">Enter the crude protein percentage shown on the ingredient label</label>
+                        </div>
+                        <div class="calc-2-top-input">
+                            <input type="number" id="crude-protein" name="crude-protein" step=".01" min="0.01" max="99.99"/>
+                        </div>
+                    </div>
+                    <div class="calc-2-bottom">
+                        <div class="calc-2-bottom-label">
+                            <label for="moisture">Enter the moisture percentage shown on the ingredient label</label>
+                        </div>
+                        <div class="calc-2-bottom-input">
+                            <input type="number" id="moisture" name="moisture" step=".01" min="0.01" max="99.99"/>
+                        </div>    
+                    </div>
+                <br>
+                <input type="submit" value="Submit" class="submit-button">
+                <input type="reset" value="Reset" class="reset-button-calc">
+                </form>
+        </div>
+        <p><b>True protein content: </b><span id="true-protein2" class="true-protein"></span></p>
+    </div>
 </div>
 {% endblock %}
 {% block js %}
 <div class="buttons">
-<a class="btn" href="/" role="button">Click here to return to the homepage</a>
-<a class="btn" href="/disclaimer" role="button">Click here to convert your pet food</a>
+<a class="btn" href="/" role="button">Homepage 🐾</a>
+<a class="btn" href="/disclaimer" role="button">Convert 🖊️</a>
 </div>
 <script src="/static/calculator.js"></script>
 {% endblock %}

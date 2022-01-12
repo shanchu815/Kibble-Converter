@@ -3,53 +3,66 @@
 {% block title %}Your pet food results:{% endblock %}
 
 {% block body %}
-<h4>Your pet food results:</h4>
-<div class="results-display" id="display">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="n3VfGE19"></script>
+<br>
+<div class="result-page">
+    <div class="results-display" id="display" data-id={{food.food_id}}>
+        <h3>📜<b>Your pet food results:</b>📜</h3>
+        <br>
+        <h5> Your product is {{ food.product_name }}:</h5>
 
-    <h5> Your product is {{ food.product_name }}:</h5>
+        <p><b>⚖️This product uses the <i>{{ food.title_ingredients[0].descriptor }} rule</i>, which means: </b></p>
+        <p>
+            {{ food.title_ingredients[0].details }}*
+        </p>
+        <p>                                                      
+        <i>*Please make sure to check the ingredient label on the back of the product to see if 
+        {{ food.title_ingredients[0].title_ingredient_name }} is the first ingredient       
+        listed there. (If it is not, then it is not the primary ingredient of the product <b>by weight</b>.)</i>
+        </p> 
 
-    <p><b>This product uses the <i>{{ food.title_ingredients[0].descriptor }} rule</i>, which means:</b></p>
-    <p>
-        {{ food.title_ingredients[0].details }}*
-    </p>
-    <p>                                                      
-      *Please make sure to check the ingredient label on the back of the product to see if 
-      {{ food.title_ingredients[0].title_ingredient_name }} is the first ingredient       
-      listed there. (If it is not, then it is not the primary ingredient of the product **by weight**.)
-    </p> 
+        <p><b>This product contains the following ingredients:</b></p>
 
-    <p><b>This product contains the following ingredients:</b></p>
+        {% if food.grains is defined and food.grains|length > 0 %}
+            <p><b>🌾{{ food.grains[0].name }}:</b></p>
+            <p>- {{ food.grains[0].effect }}</p>
+            <p>- {{ food.grains[0].details }}</p>
+        {% endif %}
 
-    {% if food.grains is defined and food.grains|length > 0 %}
-        <p><b>{{ food.grains[0].name }}:</b></p>
-        <p>- {{ food.grains[0].effect }}</p>
-        <p>- {{ food.grains[0].details }}</p>
-    {% endif %}
+        {% if food.proteins is defined and food.proteins|length > 0 %}
+            <p><b>🍖{{ food.proteins[0].name }}:</b></p>
+            <p>- {{ food.proteins[0].effect }}</p>
+            <p>- {{ food.proteins[0].details }}</p>
+        {% endif %}
 
-    {% if food.proteins is defined and food.proteins|length > 0 %}
-        <p><b>{{ food.proteins[0].name }}:</b></p>
-        <p>- {{ food.proteins[0].effect }}</p>
-        <p>- {{ food.proteins[0].details }}</p>
-    {% endif %}
+        {% if food.additives is defined and food.additives|length > 0 %}
+            <p><b>🧪{{ food.additives[0].name }}:</b></p>
+            <p>- {{ food.additives[0].effect }}</p>
+            <p>- {{ food.additives[0].details }}</p>
+        {% endif %}
 
-    {% if food.additives is defined and food.additives|length > 0 %}
-        <p><b>{{ food.additives[0].name }}:</b></p>
-        <p>- {{ food.additives[0].effect }}</p>
-        <p>- {{ food.additives[0].details }}</p>
-    {% endif %}
-
-    {% if food.preservatives is defined and food.preservatives|length > 0 %}
-        <p><b>{{ food.preservatives[0].name }}:</b></p>
-        <p>- {{ food.preservatives[0].effect }}</p>
-        <p>- {{ food.preservatives[0].details }}</p>
-    {% endif %}
+        {% if food.preservatives is defined and food.preservatives|length > 0 %}
+            <p><b>⚗️{{ food.preservatives[0].name }}:</b></p>
+            <p>- {{ food.preservatives[0].effect }}</p>
+            <p>- {{ food.preservatives[0].details }}</p>
+        {% endif %}
+        <p class="doctor-disclaimer">👨‍⚕️<i>Remember to consult with your pet nutritionist or veterinarian.</i>👩‍⚕️</p>
+        <div class="share-buttons">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <button class="btn" id="share-link">🔗</button>
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        </div>
+    </div>
 </div>
-
+<br>
+<div class="buttons">
+    <a class="btn" href="/fillout" role="button">Convert Again 🖊️</a>
+    <a class="btn" href="/calculator" role="button">Calculate 🖩</a>
+    <a class="btn" href="/homepage" role="button">Homepage 🐾</a>
+</div>
 {% endblock %}
 {% block js %}
-<div class="buttons">
-<a class="btn" href="/fillout" role="button">Click here to convert another pet food</a>
-<a class="btn" href="/calculator" role="button">Click here to find the true protein content</a>
-<a class="btn" href="/homepage" role="button">Click here to return to the homepage</a>
-</div>
+
+<script src="/static/result.js"></script>
 {% endblock %}
