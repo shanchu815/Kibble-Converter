@@ -3,11 +3,9 @@ from model import connect_to_db
 import crud
 import os
 import requests
-# "__name__" is a special Python variable for the name of the current module
-# Flask wants to know this to know what any imported things are relative to.
+
 app = Flask(__name__)
-# A secret key is needed to use Flask sessioning features
-app.secret_key = 'W33d1sl33t1845!'
+app.secret_key = os.environ['FLASK_KEY']
 cat_key = os.environ['API_KEY']
 
 @app.route('/')
@@ -139,42 +137,9 @@ def get_dog_fact():
     fact = requests.get(url).json()[0]['fact']
     return fact
 
-"""Cat photo api"""
-"""Use it as the 'x-api-key' header when making any request to the API, 
-or by adding as a query string parameter e.g. 
-KEY REMOVED"""
-# https://docs.thecatapi.com/example-by-type
-# https://api.thecatapi.com/v1/images/search?format=src&size=full&mime_types=png,jpg&api_key=YOUR-API-KEY
-# this doesn't return a json object, it literally just returns a random image url
-
-#Random Dog fact api
-"""https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all to get all the facts at once.
-Change all to parameter ?number= to specify the number of facts you want to receive."""
-# https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1 returns:
-# [
-#   {
-#       "fact": "Many foot disorders in dogs are caused by long toenails."
-#   }
-# ]
-
-"""Random Cat fact api"""
-# https://catfact.ninja/fact?max_length=140 returns:
-# {"fact":"The Cat Fanciers Association (CFA) recognizes 44 breeds of cats.","length":64}
-
-# Example request: curl --location --request GET 'https://catfact.ninja/fact?max_length=140' \
-# --header 'Accept: application/json'
-
-"""Random Dog photo api"""
-# https://dog.ceo/api/breeds/image/random returns:
-# {
-#     "message": "https://images.dog.ceo/breeds/redbone/n02090379_1448.jpg",
-#     "status": "success"
-# }
-
 if __name__ == '__main__':
     from model import connect_to_db
     # debug=True gives us error messages in the browser and also "reloads"
     # our web app if we change the code.
     connect_to_db(app)
     app.run(debug=True, host="0.0.0.0")
-
