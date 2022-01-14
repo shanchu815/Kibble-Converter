@@ -143,4 +143,4 @@ if __name__ == '__main__':
     # our web app if we change the code.
     connect_to_db(app)
     # app.run(debug=True, host="0.0.0.0")
-    app.run(host="0.0.0.0")
+    app.run()
