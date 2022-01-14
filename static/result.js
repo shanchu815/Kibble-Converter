@@ -4,10 +4,11 @@ const share = document.getElementById("share-link");
 
 function copyToClipboard(evt) {
     evt.preventDefault();
-    // const id =  document.getElementById("display").dataset.id;
-    navigator.clipboard.writeText(location.href);//TODO update to static url 
-    // (Don't update to static url) - didn't cover changing domain names yet
-    alert("URL Copied.");
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(location.href);
+        alert("URL Copied.");
+    }
+    alert(`Copy this url: ${location.href}`);
 }
 
 share.addEventListener('click', copyToClipboard);
