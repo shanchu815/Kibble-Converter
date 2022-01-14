@@ -14,4 +14,6 @@ function copyToClipboard(evt) {
 share.addEventListener('click', copyToClipboard);
 
 // `http://localhost:5000/results/${id}` -> location.href
-//`http://3.91.73.97/results/${id}` is the instance version (if location.href doesn't work, try this)
+
+// okay so navigator.clipboard doesn't work because we don't have a domain name
+// site needs to be https for this to work -> work on getting it certified
