@@ -38,7 +38,7 @@ Each page features a randomly generated cat or dog photo captioned with a random
 ###Select either of the two `Convert` buttons.
 The user should pick the correct button depending on their location or where their pet food was made.
 
-![Kibble Converter Homepage](https://imgur.com/kzN0ePi.gif)
+https://i.imgur.com/MosmwMZ.mp4
 
 The user will be taken to a disclaimer that includes the corresponding link in regards to pet food labelling standards. A link to FDA's page will be shown if the user chose `Convert US`. If the user chose `Convert EU`, the disclaimer will contain a link to the FEDIAF's page.
 
@@ -56,7 +56,7 @@ This will take the user to the form page. Please fill out the form according to 
 ###Press the `Submit` button when the user is finished
 This button will store the inputs into the database and query back a result, taking the user to a result page where the contents of their pet food will be shown in layman's terms. The user can then choose to share the link to social media by pressing the Facebook or Twitter button OR they can choose to copy the URL to their clipboard with the `🔗` button.
 
-![Result Page]()
+![Result Page](https://i.imgur.com/Qqgc09f.gif)
 
 ## <a name="calculate"></a>How to use Kibble Converter's Calculator
 ###Press the `Calculate` button on the bottom of any page or select `Calculator` from the navigation bar
@@ -65,7 +65,7 @@ This will take the user to the calculator. The user should read the following in
 There are two calculators in order to allow the user to compare two different products simultaneously.
 They can be used via entering the required inputs and pressing the corresponding `Submit` button. They can also be cleared by pressing the corresponding `Reset` button.
 
-![Calculator Page]()
+![Calculator Page](https://i.imgur.com/YGxX8YC.gif)
 
 ![Calculator Page 2](https://imgur.com/LoRCwOO.gif)
 
