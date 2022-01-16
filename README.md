@@ -38,11 +38,11 @@ Each page features a randomly generated cat or dog photo captioned with a random
 ###Select either of the two `Convert` buttons.
 The user should pick the correct button depending on their location or where their pet food was made.
 
-![Kibble Converter Homepage](https://i.imgur.com/kzN0ePi.gif)
+![Kibble Converter Homepage](https://imgur.com/kzN0ePi.gif)
 
 The user will be taken to a disclaimer that includes the corresponding link in regards to pet food labelling standards. A link to FDA's page will be shown if the user chose `Convert US`. If the user chose `Convert EU`, the disclaimer will contain a link to the FEDIAF's page.
 
-![US Disclaimer]()
+![US Disclaimer](https://i.imgur.com/S0pseKn.gif)
 
 ![EU Disclaimer](https://imgur.com/6n5pAPv.png)
 
