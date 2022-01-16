@@ -6,19 +6,20 @@
 <br>
 <div class="calculator-page">
     <div class="calculators">
-        <h2>🖩True protein calculators🖩</h2>
+        <h2>🧮True protein calculators🧮</h2>
         <div class="example">
             <div class="example-img">
                 <img src="/static/images/label.jpg" id="example-img">
             </div>
         </div>
             <div class="example-label">
-                <label for="example-img">Here's how to locate the percentages</label>
+                <label for="example-img">Crude protein may also be written as "crude protein (min)" </label>
             </div>
 
         <div class="calculator-notes">
             <h3>What is crude protein? ⚗️</h3>
-            <p>Crude protein is the measured nitrogen content of the particular food.</p>
+            <p>Crude protein is the measured nitrogen content of the particular food. If "(min)" is included, that
+                means that it is the guaranteed <i>minimum</i> amount of measured nitrogen.</p>
             <br>
             <h3>What is true protein? 🥩</h3>
             <p>True protein is the amount of <i>actual</i> protein that makes up a pound or kilo of a meat
@@ -33,7 +34,7 @@
     <!-- Flask issue: images can only be hosted in static folder, html pages can only be hosted in templates -->
         <br>
         <div class="calc-1">
-            <h3>Pet food 1 🖩</h3>
+            <h3>Pet food 1 🧮</h3>
                 <form id=calc1>
                     <div class="calc-1-top">
                         <div class="calc-1-top-label">
@@ -59,7 +60,7 @@
         <p><b>True protein content: </b><span id="true-protein" class="true-protein"></span></p>
         <br>
         <div class="calc-2">
-            <h3>Pet food 2 🖩</h3>
+            <h3>Pet food 2 🧮</h3>
                 <form id=calc2>
                     <div class="calc-2-top">
                         <div class="calc-2-top-label">
@@ -89,8 +90,8 @@
 {% block js %}
 <div class="buttons">
 <a class="btn" href="/" role="button">Homepage 🐾</a>
-<a class="btn" href="/disclaimer" role="button">Convert (US) 🖊️</a>
-<a class="btn" href="/disclaimer-eu" role="button">Convert! (EU) <b>€</b></a>
+<a class="btn" href="/disclaimer" role="button">Convert (US) 🦅</a>
+<a class="btn" href="/disclaimer-eu" role="button">Convert (EU) <b>€</b></a>
 </div>
 <script src="/static/calculator.js"></script>
 {% endblock %}
