@@ -1,6 +1,5 @@
 # Kibble Converter
 Kibble Converter is a resource site that lets pet owners find out what’s in their pet food. This site includes two different converters - one for for foods made in the US (under FDA standards) and foods made in the EU (under FEDIAF standards). It also includes a comparison calculator to let users find the true protein contents of their products, making the process far less tedious. Currently, this only applies to foods made for cats and dogs.
-![Kibble Converter Homepage](/static/thereandbackagain.png)
 
 Kibble Converter is a web app created by Shannon Chu. Shannon is passionate about pets, but currently has never owned one. As there was a lack of APIs and reputable sites regarding pet nutrition, she undertook quite the challenge of manually collecting and comparing data in order to create a database for Kibble Converter. Kibble Converter is currently locally deployed at http://3.91.73.97/ but lacks a domain name.
 
