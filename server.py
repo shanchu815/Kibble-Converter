@@ -133,8 +133,12 @@ def get_cat_image():
 def get_dog_fact():
     """Fetches a random dog fact from API"""
 
-    url = 'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1'
-    fact = requests.get(url).json()[0]['fact']
+    # url = 'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1'
+    # fact = requests.get(url).json()[0]['fact']
+    #the old dog facts api is going to be taken down
+    #use the new one which will not have call issues
+    url = 'https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/?number=1'
+    fact = requests.get(url).json()[0]['facts']
     return fact
 
 if __name__ == '__main__':
