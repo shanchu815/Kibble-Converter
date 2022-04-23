@@ -1,3 +1,17 @@
+// ''TODO NOTES:
+
+// make your site name much bigger and dont share the space with the tabs
+
+// move it from the navbar to being on the page instead
+
+// give a small blurb under the title on what it is.
+
+// [Kibble converter:
+// A convenient app to tell you w=how healthy your pet's food is]
+
+// instead of having a continue button at the very bottom, maybe have a 'convert' 
+// button right after the picture on each page?''
+
 // 'use strict';
 
 // // cannot uncheck radio buttons one by one
